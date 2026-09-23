@@ -1,0 +1,26 @@
+{
+  "Triangle_PCB_CH3_ScopeA": {
+    "label": "Triangle SiPM",
+    "first_vbr_V": 50.53357759755488,
+    "first_vbr_unc_V": 0.11260892190942934,
+    "repeat_vbr_V": 50.48584799519586,
+    "repeat_vbr_unc_V": 0.12141498341706981,
+    "repeat_minus_first_V": -0.04772960235901991,
+    "difference_unc_V": 0.1655970032692962,
+    "difference_sigma": -0.28822745228910546,
+    "first_r_squared": 0.9948829743582254,
+    "repeat_r_squared": 0.9998846537486413
+  },
+  "Star_PCB_CH2_ScopeB": {
+    "label": "Star SiPM",
+    "first_vbr_V": 50.66730248212482,
+    "first_vbr_unc_V": 0.0967346913078347,
+    "repeat_vbr_V": 50.48824972290689,
+    "repeat_vbr_unc_V": 0.09232246085874778,
+    "repeat_minus_first_V": -0.17905275921792452,
+    "difference_unc_V": 0.1337199958175182,
+    "difference_sigma": -1.3390125995985667,
+    "first_r_squared": 0.9993591355039921,
+    "repeat_r_squared": 0.9993267879020741
+  }
+}

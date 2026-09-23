@@ -1,0 +1,9 @@
+campaign,date_range,raw_path,purpose,status
+initial_bias_waveform_series,2026-08-27,/home/muon/brDownVstudy/experiments/2026-08-27_initial_bias_waveform_series,Manual multi-voltage waveform study,diagnostic
+extended_bias_and_channel_swap,2026-08-31_to_2026-09-02,/home/muon/brDownVstudy/experiments/2026-08-31_to_09-02_extended_bias_and_channel_swap,Additional voltages and channel-swap checks,diagnostic
+high_statistics_repeats,2026-09-09,/home/muon/brDownVstudy/experiments/2026-09-09_high_statistics_repeats,20000 and 50000 event captures,diagnostic
+automation_validation,2026-09-17_to_2026-09-18,/home/muon/brDownVstudy/experiments/2026-09-17_to_18_automation_validation,PicoSDK and automated scan validation,accepted_method_development
+breakdown_method_development,2026-09-21,/home/muon/brDownVstudy/experiments/2026-09-21_breakdown_scan_method_development,Repeat and lower-bias scans,accepted_with_exclusions
+operating_point_dark_counts,2026-09-21,/home/muon/brDownVstudy/experiments/2026-09-21_operating_point_dark_counts,Dark spectra at provisional Vbr plus 3 V,diagnostic_not_dcr
+scintillator_zero_event,2026-09-22,/home/muon/brDownVstudy/experiments/2026-09-22_scintillator_zero_event_test,Reference-coincidence pilot,pilot
+new_triangle_star_pair,2026-09-23,/home/muon/brDownVstudy/experiments/2026-09-23_new_sipms_triangle_star,CH3 trigger study and two clean repeated Vbr scans,accepted_internal_result

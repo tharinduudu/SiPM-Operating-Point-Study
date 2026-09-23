@@ -1,0 +1,31 @@
+{
+  "pi_host": "cosmic@10.51.100.224",
+  "pi_agent": "/home/cosmic/vbr_bias_control.py",
+  "bias_points_v": [54.8, 55.2, 55.6, 56.0, 56.4, 56.8, 57.0],
+  "minimum_bias_v": 50.0,
+  "maximum_bias_v": 57.0,
+  "events_per_point": 10000,
+  "settle_seconds": 20,
+  "signals": [
+    {
+      "name": "Triangle_PCB_CH3_ScopeA",
+      "detector_channel": 3,
+      "scope_channel": "A",
+      "trigger_mv": 25.0,
+      "color": "#1f77b4",
+      "synthetic_vbr_v": 52.0,
+      "synthetic_gain_mv_per_v": 11.0
+    }
+  ],
+  "scope": {
+    "driver": "ps3000a",
+    "range_mv": 50,
+    "probe_attenuation": 10.0,
+    "sample_interval_ns": 1.0,
+    "pre_trigger_ns": 200.0,
+    "post_trigger_ns": 400.0,
+    "trigger_mv": 25.0,
+    "auto_trigger_ms": 1000
+  },
+  "restore_normal_after_scan": false
+}

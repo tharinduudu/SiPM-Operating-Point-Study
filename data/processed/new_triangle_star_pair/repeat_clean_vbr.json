@@ -1,0 +1,9 @@
+{
+  "triangle_vbr_V": 50.48584799519586,
+  "triangle_vbr_unc_V": 0.12141498341706981,
+  "star_vbr_V": 50.48824972290689,
+  "star_vbr_unc_V": 0.09232246085874778,
+  "star_minus_triangle_V": 0.0024017277110317536,
+  "difference_unc_V": 0.1525288004843097,
+  "difference_significance_sigma": 0.015746060438460042
+}

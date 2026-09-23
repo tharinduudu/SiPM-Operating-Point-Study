@@ -1,0 +1,164 @@
+{
+  "scan_root": "vbr_scan_20260918_002247",
+  "events_per_bias_per_sipm": 10000,
+  "effective_bias_points_V": [
+    53.39990922456041,
+    54.098735464551005,
+    54.79862054043839,
+    55.5003762036939,
+    56.20026127958127,
+    56.89908751957187
+  ],
+  "temperatures_C": [
+    20.090625,
+    20.085546875,
+    20.14140625,
+    20.2126953125,
+    20.3041015625,
+    20.3853515625
+  ],
+  "temperature_normalized_biases_V": [
+    53.39501547456041,
+    54.094115933301005,
+    54.790984602938394,
+    55.488890656818896,
+    56.18383979520627,
+    56.87827853519687
+  ],
+  "pedestal": {
+    "SIPM1": {
+      "area_mean_mV_ns": 2.758054232975031,
+      "area_sigma_mV_ns": 151.32267384067327,
+      "baseline_noise_median_mV": 3.077458502885232
+    },
+    "SIPM2": {
+      "area_mean_mV_ns": -2.8469170509394135,
+      "area_sigma_mV_ns": 167.73414651058434,
+      "baseline_noise_median_mV": 2.5008134030938014
+    }
+  },
+  "fits": {
+    "SIPM1": {
+      "charge": {
+        "slope": 532.6693535140732,
+        "slope_unc": 4.451351802442357,
+        "intercept": -26969.272560477028,
+        "vbr": 50.63041900675912,
+        "vbr_unc": 0.04117453270558429,
+        "intrinsic_scatter": 0.0,
+        "reduced_chi_squared": 0.8541515645657521,
+        "r_squared": 0.9997319294580214,
+        "leave_one_out_vbr": [
+          50.56731526971744,
+          50.634485801399784,
+          50.64826938117843,
+          50.63279639643663,
+          50.633286697306396,
+          50.65809152495771
+        ]
+      },
+      "height": {
+        "slope": 11.134352773060918,
+        "slope_unc": 0.30640372954372136,
+        "intercept": -565.3049653724719,
+        "vbr": 50.77124615093952,
+        "vbr_unc": 0.10076644987656641,
+        "intrinsic_scatter": 0.0,
+        "reduced_chi_squared": 0.2724696320629836,
+        "r_squared": 0.998215542021175,
+        "leave_one_out_vbr": [
+          50.77832580688539,
+          50.822024675250695,
+          50.775275130201045,
+          50.77646691412767,
+          50.80804875458988,
+          50.702658476457415
+        ]
+      }
+    },
+    "SIPM2": {
+      "charge": {
+        "slope": 547.2744563705228,
+        "slope_unc": 16.49001806796941,
+        "intercept": -28414.61931780131,
+        "vbr": 51.92023670581051,
+        "vbr_unc": 0.11660686416743435,
+        "intrinsic_scatter": 27.495003977492885,
+        "reduced_chi_squared": 1.000000000000018,
+        "r_squared": 0.9967578748281322,
+        "leave_one_out_vbr": [
+          51.75482230687214,
+          51.994312492570025,
+          51.95051716108293,
+          51.93232606076455,
+          52.01769504797668
+        ]
+      },
+      "height": {
+        "slope": 10.780087230374255,
+        "slope_unc": 0.6387956991077245,
+        "intercept": -560.5197940304191,
+        "vbr": 51.995849574489895,
+        "vbr_unc": 0.2124554972438464,
+        "intrinsic_scatter": 1.3468551506552988,
+        "reduced_chi_squared": 1.0000000000000642,
+        "r_squared": 0.9897553785294393,
+        "leave_one_out_vbr": [
+          52.23883109959023,
+          51.839709344242884,
+          51.99725724891351,
+          51.93736020540475,
+          52.10176616130371
+        ]
+      }
+    }
+  },
+  "gate_systematic": {
+    "SIPM1": {
+      "Fixed -5 to 100 ns": 50.727018976718526,
+      "Fixed -5 to 250 ns": 50.70976935067949,
+      "Peak -20 to +200 ns": 50.69968737689663
+    },
+    "SIPM2": {
+      "Fixed -5 to 100 ns": 51.67096505526538,
+      "Fixed -5 to 250 ns": 51.731284301738704,
+      "Peak -20 to +200 ns": 51.90039713454291
+    }
+  },
+  "recommended": {
+    "SIPM1": {
+      "recommended_method": "pedestal-constrained peak-aligned charge spacing",
+      "reference_temperature_C": 20.0,
+      "temperature_coefficient_V_per_C": 0.054,
+      "breakdown_voltage_V": 50.63041900675912,
+      "fit_uncertainty_V": 0.04117453270558429,
+      "height_crosscheck_V": 50.77124615093952,
+      "height_charge_difference_V": 0.140827144180399,
+      "long_gate_systematic_V": 0.010081973782860132,
+      "internal_total_uncertainty_V": 0.14706893919821545,
+      "charge_fit_slope_mV_ns_per_V": 532.6693535140732,
+      "height_fit_slope_mV_per_V": 11.134352773060918,
+      "charge_r_squared": 0.9997319294580214,
+      "height_r_squared": 0.998215542021175,
+      "leave_one_out_charge_min_V": 50.56731526971744,
+      "leave_one_out_charge_max_V": 50.65809152495771
+    },
+    "SIPM2": {
+      "recommended_method": "pedestal-constrained peak-aligned charge spacing",
+      "reference_temperature_C": 20.0,
+      "temperature_coefficient_V_per_C": 0.054,
+      "breakdown_voltage_V": 51.92023670581051,
+      "fit_uncertainty_V": 0.11660686416743435,
+      "height_crosscheck_V": 51.995849574489895,
+      "height_charge_difference_V": 0.07561286867938577,
+      "long_gate_systematic_V": 0.16911283280420264,
+      "internal_total_uncertainty_V": 0.218891792673802,
+      "charge_fit_slope_mV_ns_per_V": 547.2744563705228,
+      "height_fit_slope_mV_per_V": 10.780087230374255,
+      "charge_r_squared": 0.9967578748281322,
+      "height_r_squared": 0.9897553785294393,
+      "leave_one_out_charge_min_V": 51.75482230687214,
+      "leave_one_out_charge_max_V": 52.01769504797668
+    }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "pi_host": "cosmic@10.51.100.224",
+  "pi_agent": "/home/cosmic/vbr_bias_control.py",
+  "bias_points_v": [53.4, 54.1, 54.8, 55.5, 56.2, 56.9],
+  "minimum_bias_v": 50.0,
+  "maximum_bias_v": 57.0,
+  "settle_seconds": 20,
+  "events_per_point": 10000,
+  "restore_normal_after_scan": false,
+  "scope": {
+    "driver": "ps3000a",
+    "range_mv": 50,
+    "probe_attenuation": 10.0,
+    "sample_interval_ns": 1.0,
+    "pre_trigger_ns": 100.0,
+    "post_trigger_ns": 400.0,
+    "trigger_mv": 15.0,
+    "auto_trigger_ms": 1000
+  },
+  "signals": [
+    {
+      "name": "SIPM1",
+      "detector_channel": 2,
+      "scope_channel": "B",
+      "trigger_mv": 15.0,
+      "color": "C0",
+      "synthetic_vbr_v": 51.2,
+      "synthetic_gain_mv_per_v": 12.0
+    },
+    {
+      "name": "SIPM2",
+      "detector_channel": 0,
+      "scope_channel": "A",
+      "trigger_mv": 15.0,
+      "color": "C1",
+      "synthetic_vbr_v": 51.5,
+      "synthetic_gain_mv_per_v": 10.0
+    }
+  ]
+}
