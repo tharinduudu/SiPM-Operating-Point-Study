@@ -10,7 +10,7 @@ The repository does not contain the multi-gigabyte waveform campaigns. Copying s
 /home/muon/brDownVstudy/experiments/
 ```
 
-The exact campaign locations are listed in [raw_data_index.csv](raw_data_index.csv).
+The original top-level locations are listed in [raw_data_index.csv](raw_data_index.csv). The more detailed [campaign catalog](campaign_catalog.csv) records the devices, channel mapping, voltage coverage, event scale, purpose, and whether the campaign was accepted, diagnostic, or rejected.
 
 ## Processed directories
 
@@ -27,6 +27,15 @@ The exact campaign locations are listed in [raw_data_index.csv](raw_data_index.c
 - first clean two-device Vbr result;
 - repeated clean result;
 - two-run repeatability summary.
+
+### `processed/manual_campaigns`
+
+- first 55.59 V waveform panels, event tables, peak fits, and saturation checks;
+- first provisional all-voltage height-gap breakdown fit;
+- robust 31 August to 2 September height and area reanalysis;
+- 50,000-event high-statistics height, area, and saturation checks.
+
+These files document how the algorithm developed. They are not substituted for the later automated result.
 
 ## Units
 

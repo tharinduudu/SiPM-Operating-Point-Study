@@ -2,6 +2,8 @@
 
 This log records what changed between experiments and why. It is not a polished replacement for the raw run manifests. The manifests preserve instrument settings; these notes preserve the reasoning that connected one run to the next.
 
+The first entry covers several manual sub-campaigns because the method was changing quickly. A run-level summary is also available in [`data/campaign_catalog.csv`](../data/campaign_catalog.csv).
+
 | Period | Main work | Record |
 |---|---|---|
 | 2026-08-27 to 2026-09-16 | Manual waveform captures, added voltages, channel swaps, and high-statistics repeats | [Manual waveform period](2026-08-27_to_09-16_manual_waveforms.md) |

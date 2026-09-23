@@ -1,0 +1,3 @@
+sipm,detector_channel,scope_channel,accepted_events,fd_bin_width_mV,mean_mV,median_mV,std_mV,selected_peak_positions_mV,one_pe_spacing_mV,one_pe_spacing_unc_mV,plot_file
+SIPM1,CH0,A,9949,5.150926249703289,195.16676350088989,172.29603101912778,53.094915090520274,161.882;215.992;270.782,54.450015282733126,0.5462586655225409,/Users/tharinduhettiarachchi/Desktop/design/new415/brDownVstudy_55p59V_analysis_20260827/separate_sipm_histograms/sipm1_ch0_pulse_height_histogram.png
+SIPM2,CH2,B,9871,2.229598203854348,179.54646463874892,171.3612575429495,33.34143358673149,170.025;212.112;253.921,41.94829308804246,0.38241784246891647,/Users/tharinduhettiarachchi/Desktop/design/new415/brDownVstudy_55p59V_analysis_20260827/separate_sipm_histograms/sipm2_ch2_pulse_height_histogram.png

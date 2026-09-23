@@ -10,6 +10,10 @@ The [analysis](analysis) scripts perform baseline subtraction, waveform measurem
 
 The scripts were copied from the working study directory at the time this repository was assembled. Processed outputs are retained so that later code changes do not silently rewrite the recorded result.
 
+## Historical analysis
+
+The [legacy](legacy) directory contains the actual scripts used for the manual waveform campaigns: Gaussian histogram smoothing, candidate discovery with `find_peaks`, local Gaussian refinement, even-spacing selection, and the early height/area line fits. These files explain the historical plots and method changes. The current accepted method remains in [analysis](analysis).
+
 ## Safety
 
 Bias-control code can command detector high voltage. A scan must leave HV off on normal completion and on failure. Because the MAX1932 path has no readback, verify the physical output before connecting or moving SiPMs.

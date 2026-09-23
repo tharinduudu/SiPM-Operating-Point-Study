@@ -2,7 +2,7 @@
 
 This repository records the work carried out to find a defensible operating point for the Hamamatsu **S13360-2050VE** SiPMs used with the gLOWCOST detector readout. The practical question sounds simple: what voltage should be applied to each SiPM? In practice, the answer depends on breakdown voltage, temperature, the analogue readout, the acquisition trigger, and the measurement used to compare one SiPM with another.
 
-The work is kept here as a scientific record, including the measurements that worked, the measurements that did not work, and the reasons for changing the method. Raw waveform files are too large for Git. The repository therefore contains the analysis code, compact processed data, selected plots, photographs, and an index pointing to the raw records on the acquisition computer.
+The work is kept here as a scientific record, including the measurements that worked, the measurements that did not work, and the reasons for changing the method. It covers the manual waveform recordings, height and area histograms, p.e. gap algorithms, channel-swap tests, high-statistics repeats, automated scans, pedestal studies, scintillator tests, and the later Triangle/Star measurements. Raw waveform files are too large for Git. The repository therefore contains the analysis code, compact processed data, selected plots, photographs, and an index pointing to the raw records on the acquisition computer.
 
 ![Readout board connected to the PicoScope](figures/setup/readout_board_scope_connections_2026-09-23.jpg)
 
@@ -32,6 +32,11 @@ These uncertainties describe the waveform analysis and run-to-run repeatability.
 | [Results](docs/05_results.md) | Original pair, Triangle/Star pair, failed checks, and interpretation |
 | [Limits](docs/06_uncertainty_and_limits.md) | What the numbers do and do not establish |
 | [Next measurements](docs/07_next_measurements.md) | Voltage calibration, temperature scans, and PDE matching |
+| [Complete experiment history](docs/08_complete_experiment_history.md) | Every campaign from the first manual recordings to the repeat scans |
+| [Waveform processing](docs/09_waveform_processing.md) | CSV structure, baseline, gates, height, area, acceptance, and saturation checks |
+| [Peak finding and p.e. gap](docs/10_peak_finding_and_pe_gap.md) | The historical and final algorithms, equations, uncertainties, and failure tests |
+| [Tools and reproducibility](docs/11_tools_and_reproducibility.md) | Hardware, software, package versions, file locations, and rerun procedure |
+| [Figure and result catalog](docs/12_figure_and_result_catalog.md) | Where to find the important plots and what each one demonstrates |
 | [Lab log](lab-log/README.md) | Chronological record of changes, observations, and decisions |
 | [Data guide](data/README.md) | Processed files and raw-data locations |
 | [References](docs/references.md) | Datasheet and analysis literature |
@@ -62,7 +67,7 @@ Pulse area is the primary observable because it uses the full pulse charge and i
 
 ## Reproducing the analysis
 
-The scripts are separated into [acquisition](scripts/acquisition) and [analysis](scripts/analysis). Example scan configurations are in [config](config). Install the Python dependencies with:
+The scripts are separated into [acquisition](scripts/acquisition), the current [analysis](scripts/analysis), and a [legacy method archive](scripts/legacy). The legacy scripts are kept because they show exactly how the early p.e. gaps were obtained; they are not silently presented as the final method. Example scan configurations are in [config](config). Install the Python dependencies with:
 
 ```bash
 python3 -m venv .venv

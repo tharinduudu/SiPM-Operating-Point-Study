@@ -1,5 +1,7 @@
 # Analysis method
 
+This page gives the current primary method. The earlier smoothed-histogram and local-Gaussian method is documented separately in [Peak finding and p.e. gap](10_peak_finding_and_pe_gap.md), with its original scripts under `scripts/legacy/`.
+
 ## Why photoelectron spacing is useful
 
 One fired SiPM microcell produces an avalanche with a charge proportional to overvoltage. Two simultaneously fired cells produce approximately twice that charge, and so on. A histogram of many dark pulses can therefore contain a pedestal followed by populations near 1 p.e., 2 p.e., 3 p.e., and higher.
@@ -108,6 +110,8 @@ The following uncertainties remain separate:
 - uncertainty in the temperature coefficient;
 - channel-dependent trigger response;
 - possible device heating and temperature gradients.
+
+The distinction is important: the reported internal uncertainty answers how precisely this dataset fixes the intercept under the stated method. It does not answer how accurately the commanded MAX1932/DAC setting equals the physical SiPM voltage.
 
 For this reason, a Vbr value may have a small internal fit error while still needing a larger absolute-voltage systematic.
 
