@@ -20,6 +20,7 @@ from analyze_point import quadratic_peak, robust_baseline
 
 
 CHANNEL_COLUMN = {"A": 1, "B": 2, "C": 3, "D": 4}
+CHANNEL_OVERFLOW_BIT = {"A": 0, "B": 1, "C": 2, "D": 3}
 COLORS = {"A": "#1f77b4", "B": "#ff7f0e", "C": "#2ca02c", "D": "#d62728"}
 
 
@@ -124,6 +125,12 @@ def main() -> None:
         "--reference-thresholds-mv", type=parse_thresholds, default=parse_thresholds("C=100,D=100")
     )
     parser.add_argument("--reference-coincidence-ns", type=float, default=30.0)
+    parser.add_argument(
+        "--minimum-reference-events",
+        type=int,
+        default=100,
+        help="minimum selected reference coincidences required for analysis",
+    )
     parser.add_argument("--reference-search-start-ns", type=float, default=-40.0)
     parser.add_argument("--reference-search-stop-ns", type=float, default=140.0)
     parser.add_argument(
@@ -161,13 +168,13 @@ def main() -> None:
     if not files:
         raise FileNotFoundError(f"No waveform CSV files in {args.run_dir}")
     args.output.mkdir(parents=True, exist_ok=True)
-    overflow_by_event: dict[int, bool] = {}
+    overflow_by_event: dict[int, int] = {}
     status_path = args.run_dir / "event_status.csv"
     if status_path.exists():
         status = pd.read_csv(status_path)
         overflow_column = "overflow_mask" if "overflow_mask" in status else "overflow"
         overflow_by_event = {
-            int(row.event): bool(getattr(row, overflow_column)) for row in status.itertuples(index=False)
+            int(row.event): int(getattr(row, overflow_column)) for row in status.itertuples(index=False)
         }
 
     first_pass: list[dict[str, object]] = []
@@ -183,7 +190,7 @@ def main() -> None:
         row: dict[str, object] = {
             "event": event,
             "file": path.name,
-            "overflow": overflow_by_event.get(event, False),
+            "overflow_mask": overflow_by_event.get(event, 0),
         }
         corrected: dict[str, np.ndarray] = {}
         noises: dict[str, float] = {}
@@ -202,8 +209,13 @@ def main() -> None:
             height, peak_time = peak(time_ns, corrected[dut.channel], reference_mask)
             row[f"{dut.channel}_candidate_height_mV"] = height
             row[f"{dut.channel}_candidate_time_ns"] = peak_time
+        reference_overflow = any(
+            int(row["overflow_mask"]) & (1 << CHANNEL_OVERFLOW_BIT[channel])
+            for channel in references
+        )
+        row["reference_overflow"] = reference_overflow
         reference_pass = (
-            not row["overflow"]
+            not reference_overflow
             and all(
                 row[f"{channel}_reference_height_mV"] >= args.reference_thresholds_mv[channel]
                 for channel in references
@@ -219,8 +231,11 @@ def main() -> None:
 
     table = pd.DataFrame(first_pass)
     selected = table["reference_selected"].fillna(False)
-    if selected.sum() < 100:
-        raise RuntimeError(f"Only {int(selected.sum())} reference coincidences; at least 100 are required")
+    if selected.sum() < args.minimum_reference_events:
+        raise RuntimeError(
+            f"Only {int(selected.sum())} reference coincidences; "
+            f"at least {args.minimum_reference_events} are required"
+        )
 
     expected_times: dict[str, float] = {}
     for dut in duts:

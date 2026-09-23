@@ -11,6 +11,7 @@ The first entry covers several manual sub-campaigns because the method was chang
 | 2026-09-19 to 2026-09-21 | Repeatability, low-bias limits, and provisional operating points | [Repeatability and operating point](2026-09-19_to_21_repeatability.md) |
 | 2026-09-22 | Scintillator zero-event pilot and first Triangle/Star tests | [Scintillator and new SiPMs](2026-09-22_scintillator_and_new_sipms.md) |
 | 2026-09-23 | CH3 trigger diagnosis, corrected scans, and sanity-check repeat | [Trigger correction and final repeat](2026-09-23_trigger_fix_and_sanity_check.md) |
+| 2026-09-23 | Small-tile reference trigger, four-channel bias setup, and production acquisition | [Small-tile trigger calibration](2026-09-23_small_tile_trigger_calibration.md) |
 
 ## How to add a new entry
 

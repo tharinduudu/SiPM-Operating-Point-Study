@@ -1,0 +1,147 @@
+{
+  "timestamp_utc": "2026-09-23T21:59:34.736346+00:00",
+  "action": "set_scintillator_calibration_biases",
+  "environment": {
+    "temperature_C": 20.9390625,
+    "pressure_hPa": 984.4172610186774,
+    "humidity_pct": 53.51398742030632,
+    "sensor": "BME280@0x77"
+  },
+  "temperature_coefficient_V_per_C": 0.054,
+  "overvoltage_V": 3.0,
+  "channel_mapping": {
+    "0": {
+      "label": "small_top_reference",
+      "vbr_V": 50.543,
+      "vbr_reference_temperature_C": 20.4,
+      "vbr_status": "proxy: mean measured Vbr of Triangle and Star; individual Vbr not measured"
+    },
+    "1": {
+      "label": "small_bottom_reference",
+      "vbr_V": 50.543,
+      "vbr_reference_temperature_C": 20.4,
+      "vbr_status": "proxy: mean measured Vbr of Triangle and Star; individual Vbr not measured"
+    },
+    "2": {
+      "label": "Triangle_SIPM1_top_large",
+      "vbr_V": 50.512,
+      "vbr_reference_temperature_C": 20.4,
+      "vbr_status": "measured"
+    },
+    "3": {
+      "label": "Star_SIPM2_bottom_large",
+      "vbr_V": 50.574,
+      "vbr_reference_temperature_C": 20.4,
+      "vbr_status": "measured"
+    }
+  },
+  "plan": {
+    "max1932_code": 248,
+    "max1932_code_hex": "0xF8",
+    "high_side_v": 55.13438071296,
+    "channels": {
+      "0": {
+        "target_bias_v": 53.572109375,
+        "dac_code": 533,
+        "dac_code_hex": "0x215",
+        "low_side_v": 1.5618826001955033,
+        "effective_bias_v": 53.5724981127645,
+        "error_mv": 0.3887377645028778
+      },
+      "1": {
+        "target_bias_v": 53.572109375,
+        "dac_code": 533,
+        "dac_code_hex": "0x215",
+        "low_side_v": 1.5618826001955033,
+        "effective_bias_v": 53.5724981127645,
+        "error_mv": 0.3887377645028778
+      },
+      "2": {
+        "target_bias_v": 53.541109375,
+        "dac_code": 544,
+        "dac_code_hex": "0x220",
+        "low_side_v": 1.5941062561094819,
+        "effective_bias_v": 53.54027445685052,
+        "error_mv": -0.8349181494793356
+      },
+      "3": {
+        "target_bias_v": 53.603109374999995,
+        "dac_code": 523,
+        "dac_code_hex": "0x20B",
+        "low_side_v": 1.532588367546432,
+        "effective_bias_v": 53.60179234541357,
+        "error_mv": -1.317029586424212
+      }
+    }
+  },
+  "commands": [
+    "High voltage: 57.00 V\nDAC output: 3.00 V\nEffective bias: 54.00 V",
+    "High voltage: 57.00 V\nDAC output: 3.00 V\nEffective bias: 54.00 V",
+    "High voltage: 57.00 V\nDAC output: 3.00 V\nEffective bias: 54.00 V",
+    "High voltage: 57.00 V\nDAC output: 3.00 V\nEffective bias: 54.00 V",
+    "MAX1932 code: 0xF8 (248)\nExpected high voltage: 55.13 V",
+    "High voltage: 57.00 V\nDAC output: 2.90 V\nEffective bias: 54.10 V",
+    "High voltage: 57.00 V\nDAC output: 2.81 V\nEffective bias: 54.19 V",
+    "High voltage: 57.00 V\nDAC output: 2.72 V\nEffective bias: 54.28 V",
+    "High voltage: 57.00 V\nDAC output: 2.62 V\nEffective bias: 54.38 V",
+    "High voltage: 57.00 V\nDAC output: 2.53 V\nEffective bias: 54.47 V",
+    "High voltage: 57.00 V\nDAC output: 2.43 V\nEffective bias: 54.57 V",
+    "High voltage: 57.00 V\nDAC output: 2.34 V\nEffective bias: 54.66 V",
+    "High voltage: 57.00 V\nDAC output: 2.25 V\nEffective bias: 54.75 V",
+    "High voltage: 57.00 V\nDAC output: 2.15 V\nEffective bias: 54.85 V",
+    "High voltage: 57.00 V\nDAC output: 2.06 V\nEffective bias: 54.94 V",
+    "High voltage: 57.00 V\nDAC output: 1.97 V\nEffective bias: 55.03 V",
+    "High voltage: 57.00 V\nDAC output: 1.87 V\nEffective bias: 55.13 V",
+    "High voltage: 57.00 V\nDAC output: 1.78 V\nEffective bias: 55.22 V",
+    "High voltage: 57.00 V\nDAC output: 1.68 V\nEffective bias: 55.32 V",
+    "High voltage: 57.00 V\nDAC output: 1.59 V\nEffective bias: 55.41 V",
+    "High voltage: 57.00 V\nDAC output: 1.56 V\nEffective bias: 55.44 V",
+    "High voltage: 57.00 V\nDAC output: 2.90 V\nEffective bias: 54.10 V",
+    "High voltage: 57.00 V\nDAC output: 2.81 V\nEffective bias: 54.19 V",
+    "High voltage: 57.00 V\nDAC output: 2.72 V\nEffective bias: 54.28 V",
+    "High voltage: 57.00 V\nDAC output: 2.62 V\nEffective bias: 54.38 V",
+    "High voltage: 57.00 V\nDAC output: 2.53 V\nEffective bias: 54.47 V",
+    "High voltage: 57.00 V\nDAC output: 2.43 V\nEffective bias: 54.57 V",
+    "High voltage: 57.00 V\nDAC output: 2.34 V\nEffective bias: 54.66 V",
+    "High voltage: 57.00 V\nDAC output: 2.25 V\nEffective bias: 54.75 V",
+    "High voltage: 57.00 V\nDAC output: 2.15 V\nEffective bias: 54.85 V",
+    "High voltage: 57.00 V\nDAC output: 2.06 V\nEffective bias: 54.94 V",
+    "High voltage: 57.00 V\nDAC output: 1.97 V\nEffective bias: 55.03 V",
+    "High voltage: 57.00 V\nDAC output: 1.87 V\nEffective bias: 55.13 V",
+    "High voltage: 57.00 V\nDAC output: 1.78 V\nEffective bias: 55.22 V",
+    "High voltage: 57.00 V\nDAC output: 1.68 V\nEffective bias: 55.32 V",
+    "High voltage: 57.00 V\nDAC output: 1.59 V\nEffective bias: 55.41 V",
+    "High voltage: 57.00 V\nDAC output: 1.56 V\nEffective bias: 55.44 V",
+    "High voltage: 57.00 V\nDAC output: 2.90 V\nEffective bias: 54.10 V",
+    "High voltage: 57.00 V\nDAC output: 2.81 V\nEffective bias: 54.19 V",
+    "High voltage: 57.00 V\nDAC output: 2.72 V\nEffective bias: 54.28 V",
+    "High voltage: 57.00 V\nDAC output: 2.62 V\nEffective bias: 54.38 V",
+    "High voltage: 57.00 V\nDAC output: 2.53 V\nEffective bias: 54.47 V",
+    "High voltage: 57.00 V\nDAC output: 2.43 V\nEffective bias: 54.57 V",
+    "High voltage: 57.00 V\nDAC output: 2.34 V\nEffective bias: 54.66 V",
+    "High voltage: 57.00 V\nDAC output: 2.25 V\nEffective bias: 54.75 V",
+    "High voltage: 57.00 V\nDAC output: 2.15 V\nEffective bias: 54.85 V",
+    "High voltage: 57.00 V\nDAC output: 2.06 V\nEffective bias: 54.94 V",
+    "High voltage: 57.00 V\nDAC output: 1.97 V\nEffective bias: 55.03 V",
+    "High voltage: 57.00 V\nDAC output: 1.87 V\nEffective bias: 55.13 V",
+    "High voltage: 57.00 V\nDAC output: 1.78 V\nEffective bias: 55.22 V",
+    "High voltage: 57.00 V\nDAC output: 1.68 V\nEffective bias: 55.32 V",
+    "High voltage: 57.00 V\nDAC output: 1.59 V\nEffective bias: 55.41 V",
+    "High voltage: 57.00 V\nDAC output: 2.90 V\nEffective bias: 54.10 V",
+    "High voltage: 57.00 V\nDAC output: 2.81 V\nEffective bias: 54.19 V",
+    "High voltage: 57.00 V\nDAC output: 2.72 V\nEffective bias: 54.28 V",
+    "High voltage: 57.00 V\nDAC output: 2.62 V\nEffective bias: 54.38 V",
+    "High voltage: 57.00 V\nDAC output: 2.53 V\nEffective bias: 54.47 V",
+    "High voltage: 57.00 V\nDAC output: 2.43 V\nEffective bias: 54.57 V",
+    "High voltage: 57.00 V\nDAC output: 2.34 V\nEffective bias: 54.66 V",
+    "High voltage: 57.00 V\nDAC output: 2.25 V\nEffective bias: 54.75 V",
+    "High voltage: 57.00 V\nDAC output: 2.15 V\nEffective bias: 54.85 V",
+    "High voltage: 57.00 V\nDAC output: 2.06 V\nEffective bias: 54.94 V",
+    "High voltage: 57.00 V\nDAC output: 1.97 V\nEffective bias: 55.03 V",
+    "High voltage: 57.00 V\nDAC output: 1.87 V\nEffective bias: 55.13 V",
+    "High voltage: 57.00 V\nDAC output: 1.78 V\nEffective bias: 55.22 V",
+    "High voltage: 57.00 V\nDAC output: 1.68 V\nEffective bias: 55.32 V",
+    "High voltage: 57.00 V\nDAC output: 1.59 V\nEffective bias: 55.41 V",
+    "High voltage: 57.00 V\nDAC output: 1.53 V\nEffective bias: 55.47 V"
+  ]
+}
