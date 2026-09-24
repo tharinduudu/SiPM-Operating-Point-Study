@@ -50,8 +50,9 @@ The production run was started at 18:11 EDT:
 
 ```text
 /home/muon/brDownVstudy/experiments/2026-09-23_triangle_star_scintillator_calibration/
-production_small_tile_trigger_d150_C20V_20260923_181800/
 ```
+
+The run directory is identified by its `20260923_181800` start-time suffix on the acquisition computer.
 
 Settings:
 
