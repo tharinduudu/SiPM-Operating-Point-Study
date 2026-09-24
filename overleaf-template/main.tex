@@ -1,0 +1,318 @@
+\documentclass[11pt]{article}
+
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{siunitx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage[nameinlink,noabbrev]{cleveref}
+
+\graphicspath{{figures/}}
+\sisetup{separate-uncertainty=true}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue!55!black,
+  citecolor=blue!55!black,
+  urlcolor=blue!55!black,
+  pdftitle={SiPM Operating-Point Study for the gLOWCOST Detector},
+  pdfauthor={Tharindu Hettiarachchi}
+}
+
+\newcommand{\vbr}{V_{\mathrm{br}}}
+\newcommand{\vbias}{V_{\mathrm{bias}}}
+\newcommand{\vov}{V_{\mathrm{OV}}}
+\newcommand{\pe}{\mathrm{p.e.}}
+\newcommand{\studysection}[1]{\section{#1}\leavevmode\par}
+\newcommand{\studysubsection}[1]{\subsection{#1}\leavevmode\par}
+\newcommand{\studysubsubsection}[1]{\subsubsection{#1}\leavevmode\par}
+\newcommand{\studyfigure}[3]{%
+  \begin{figure}[htbp]
+    \centering
+    \IfFileExists{figures/#1}{%
+      \includegraphics[width=0.90\linewidth]{#1}%
+    }{%
+      \fbox{\parbox[c][50mm][c]{0.86\linewidth}{\centering
+      Figure placeholder\\[4pt]\texttt{\detokenize{#1}}}}%
+    }
+    \caption{#2}
+    \label{#3}
+  \end{figure}%
+}
+
+\title{Characterization and Operating-Point Calibration of SiPMs\\
+for the gLOWCOST Detector}
+\author{Tharindu Hettiarachchi\\
+Department of Physics and Astronomy, Georgia State University}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+% Add a short statement of the problem, method, principal results, and conclusion.
+\end{abstract}
+
+\tableofcontents
+\newpage
+
+\studysection{Introduction}
+\studysubsection{Motivation}
+\studysubsection{The gLOWCOST detector}
+\studysubsection{Why the SiPM operating point must be calibrated}
+\studysubsection{Objectives of this study}
+\studysubsection{Scope of the work}
+
+\studysection{Detector and Instrumentation}
+\studysubsection{Hamamatsu S13360-2050VE SiPM}
+\studysubsection{GSU gLOWCOST scintillator tiles}
+\studysubsection{EPIC reference tiles}
+\studysubsection{Wavelength-shifting fibre and optical coupling}
+\studysubsection{Analogue readout electronics}
+\studysubsubsection{SiPM bias and signal connection}
+\studysubsubsection{Amplification stage}
+\studysubsubsection{Comparator and FPGA counting path}
+\studysubsection{Bias-voltage generation}
+\studysubsubsection{MAX1932 high-side supply}
+\studysubsubsection{Per-channel DAC adjustment}
+\studysubsubsection{Effective SiPM bias}
+\studysubsection{PicoScope waveform acquisition}
+\studysubsection{Temperature and environmental sensors}
+\studysubsection{Channel mapping and detector geometry}
+
+\begin{table}[htbp]
+  \centering
+  \caption{Channel mapping used for the EPIC-triggered GSU gLOWCOST measurement.}
+  \label{tab:channel-map}
+  \begin{tabular}{llll}
+    \toprule
+    Detector element & SiPM label & PCB channel & Scope channel \\
+    \midrule
+    Top EPIC tile &  & CH0 & C \\
+    Top GSU gLOWCOST tile & SiPM 1 (Triangle) & CH2 & A \\
+    Bottom GSU gLOWCOST tile & SiPM 2 (Star) & CH3 & B \\
+    Bottom EPIC tile &  & CH1 & D \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\studysection{Physical Basis}
+\studysubsection{Geiger-mode avalanche operation}
+\studysubsection{Breakdown voltage and overvoltage}
+
+\begin{equation}
+  \vov = \vbias - \vbr .
+  \label{eq:overvoltage}
+\end{equation}
+
+\studysubsection{SiPM gain and photoelectron peak spacing}
+\studysubsection{Photon-detection efficiency}
+\studysubsection{Dark counts}
+\studysubsection{Optical crosstalk and afterpulsing}
+\studysubsection{Temperature dependence of breakdown voltage}
+\studysubsection{Scintillation-light production and collection}
+\studysubsection{Zero-event probability}
+
+\begin{equation}
+  P(0) = e^{-\mu},
+  \qquad
+  \mu = -\ln P(0).
+  \label{eq:poisson-zero}
+\end{equation}
+
+\studysubsection{Dark-window correction}
+
+\begin{equation}
+  P_{0,\mathrm{signal}} = \frac{f_{0,\mathrm{signal\ gate}}}
+  {f_{0,\mathrm{dark\ gate}}},
+  \qquad
+  \epsilon_{\mathrm{chain}} = 1-P_{0,\mathrm{signal}}.
+  \label{eq:dark-corrected-zero}
+\end{equation}
+
+\studysection{Experimental Method}
+\studysubsection{SiPM identification and labeling}
+\studysubsection{Electrical and optical connections}
+\studysubsection{Probe attenuation and oscilloscope configuration}
+\studysubsection{Bias-voltage settings}
+\studysubsection{Temperature stabilization and recording}
+\studysubsection{Light-blocked dark-pulse acquisition}
+\studysubsection{Breakdown-voltage scan}
+\studysubsubsection{Voltage range and step size}
+\studysubsubsection{Events recorded at each voltage}
+\studysubsubsection{Bias settling time}
+\studysubsubsection{Trigger settings}
+\studysubsection{Channel-swap test}
+\studysubsection{Independent repeat scan}
+\studysubsection{EPIC-tile reference coincidence}
+\studysubsection{GSU gLOWCOST zero-event acquisition}
+\studysubsection{Control measurements}
+\studysubsubsection{High-voltage-off control}
+\studysubsubsection{Dark-time control window}
+\studysubsubsection{Saturation and overflow checks}
+
+\studysection{Waveform Processing}
+\studysubsection{Raw PicoScope data format}
+\studysubsection{Probe-attenuation correction}
+\studysubsection{Event-by-event baseline estimation}
+\studysubsection{Baseline-noise measurement}
+\studysubsection{Pulse search window}
+\studysubsection{Pulse-height measurement}
+\studysubsection{Peak-aligned pulse-area integration}
+\studysubsection{Waveform acceptance criteria}
+\studysubsection{Clipping and saturation detection}
+\studysubsection{Dark and signal integration gates}
+
+\studyfigure{example-waveform.pdf}%
+{Example waveform showing the baseline region, pulse-search region, and integration gate.}%
+{fig:waveform-example}
+
+\studysection{Photoelectron Spectrum Analysis}
+\studysubsection{Construction of pulse-height histograms}
+\studysubsection{Construction of pulse-area histograms}
+\studysubsection{Statistical bin-width selection}
+\studysubsection{Histogram smoothing for candidate discovery}
+\studysubsection{Candidate peak detection}
+\studysubsection{Local peak fitting}
+\studysubsection{Selection of evenly spaced photoelectron populations}
+\studysubsection{Pedestal-constrained multi-population model}
+\studysubsection{Photoelectron-gap uncertainty}
+\studysubsection{Tests for unresolved or misleading spectra}
+
+\studyfigure{example-pe-spectrum.pdf}%
+{Example photoelectron spectrum with the fitted population centers.}%
+{fig:pe-spectrum}
+
+\studysection{Breakdown-Voltage Determination}
+\studysubsection{Photoelectron spacing as a gain proxy}
+\studysubsection{Linear spacing model}
+
+\begin{equation}
+  \Delta Q = m\vbias+b = m(\vbias-\vbr),
+  \qquad
+  \vbr=-\frac{b}{m}.
+  \label{eq:vbr-fit}
+\end{equation}
+
+\studysubsection{Weighted linear regression}
+\studysubsection{Bias-point acceptance}
+\studysubsection{Temperature normalization}
+\studysubsection{Fit uncertainty}
+\studysubsection{Voltage-calibration systematic uncertainty}
+\studysubsection{Leave-one-out and repeatability checks}
+
+\studyfigure{example-vbr-fit.pdf}%
+{Photoelectron spacing as a function of effective bias. The x-intercept gives the breakdown voltage.}%
+{fig:vbr-fit}
+
+\studysection{Zero-Event Analysis}
+\studysubsection{Selection of EPIC-tile coincidence events}
+\studysubsection{Timing-coincidence requirement}
+\studysubsection{GSU gLOWCOST signal window}
+\studysubsection{Dark-time window}
+\studysubsection{Definition of a zero event}
+\studysubsection{Correction for dark counts and electronic noise}
+\studysubsection{Full-chain detection efficiency}
+\studysubsection{Zero-equivalent mean occupancy}
+\studysubsection{Statistical interval calculation}
+\studysubsection{Accidental-coincidence estimate}
+\studysubsection{Interpretation limits for cosmic-ray data}
+
+\studysection{Results}
+\studysubsection{Bias-voltage calibration}
+\studysubsection{Recorded waveform quality}
+\studysubsection{Photoelectron spectra}
+\studysubsection{Photoelectron spacing versus bias}
+\studysubsection{Breakdown voltages}
+
+\begin{table}[htbp]
+  \centering
+  \caption{Measured SiPM breakdown voltages and provisional operating points.}
+  \label{tab:vbr-results}
+  \begin{tabular}{lccc}
+    \toprule
+    Device & $\vbr$ (V) & Reference temperature ($^\circ$C) & Operating bias (V) \\
+    \midrule
+    SiPM 1 (Triangle) &  &  &  \\
+    SiPM 2 (Star) &  &  &  \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\studysubsection{Repeatability of the breakdown-voltage measurement}
+\studysubsection{Channel-swap comparison}
+\studysubsection{Temperature dependence}
+\studysubsection{Dark-count response at the operating point}
+\studysubsection{EPIC-triggered GSU gLOWCOST response}
+\studysubsection{Zero-event fractions}
+\studysubsection{Full-chain detection efficiencies}
+\studysubsection{Comparison of SiPM 1 and SiPM 2}
+
+\studysection{Discussion}
+\studysubsection{Physical interpretation of the photoelectron spectra}
+\studysubsection{Validity of the linear gain extrapolation}
+\studysubsection{Comparison with Hamamatsu specifications}
+\studysubsection{Effect of the analogue readout chain}
+\studysubsection{Effect of trigger selection}
+\studysubsection{Device differences and channel-dependent effects}
+\studysubsection{Meaning of equal overvoltage}
+\studysubsection{Meaning of matched full-chain efficiency}
+\studysubsection{Statistical uncertainty}
+\studysubsection{Systematic uncertainty}
+\studysubsection{Limitations of the scintillator zero-event measurement}
+\studysubsection{Implications for the gLOWCOST detector operating point}
+
+\studysection{Recommended Operating Point}
+\studysubsection{Selection criteria}
+\studysubsection{Bias setting for each SiPM}
+\studysubsection{Temperature-compensation coefficient}
+\studysubsection{Detector threshold}
+\studysubsection{Expected operating margins}
+
+\studysection{Future Measurements}
+\studysubsection{Direct calibration of the delivered bias voltage}
+\studysubsection{Controlled-temperature breakdown-voltage scan}
+\studysubsection{Pulsed-LED zero-event measurement}
+\studysubsection{Relative photon-detection-efficiency matching}
+\studysubsection{Dark-count, crosstalk, and afterpulse measurements}
+\studysubsection{Long-term detector stability}
+
+\studysection{Conclusion}
+
+\section*{Acknowledgements}
+\leavevmode\par
+\addcontentsline{toc}{section}{Acknowledgements}
+
+\nocite{hamamatsu_s13360_series}
+\bibliographystyle{unsrt}
+\bibliography{references}
+
+\appendix
+
+\studysection{Complete Acquisition Settings}
+\studysubsection{Breakdown-voltage scans}
+\studysubsection{Zero-event acquisition}
+
+\studysection{Bias-Control Codes and Voltage Conversion}
+
+\studysection{Waveform-Analysis Parameters}
+
+\studysection{Peak-Finding Parameters}
+
+\studysection{Additional Spectra and Fit Diagnostics}
+
+\studysection{Rejected and Diagnostic Runs}
+
+\studysection{Data and Code Availability}
+
+\end{document}
