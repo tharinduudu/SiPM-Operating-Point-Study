@@ -49,6 +49,6 @@ Two different physical pairs appear in this repository:
 | Group | Labels | Purpose |
 |---|---|---|
 | Original pair | SIPM1 and SIPM2 | Method development, repeated scans, lower-bias study, and initial operating-point run |
-| New pair | Triangle and Star | Channel diagnosis and final two-run comparison on 2026-09-23 |
+| New pair | SiPM 1 (Triangle) and SiPM 2 (Star) | Channel diagnosis and final two-run comparison on 2026-09-23 |
 
 Their values must not be combined. The labels identify physical devices, not permanent PCB channels.

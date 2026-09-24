@@ -1,8 +1,8 @@
 {
-  "purpose": "Measure Triangle and Star full-chain response using the two small scintillators as a particle reference.",
+  "purpose": "Measure SiPM 1 (Triangle) and SiPM 2 (Star) full-chain response using the two small scintillators as a particle reference.",
   "detector_mapping": {
-    "scope_A": "Triangle_SIPM1_top_large_PCB_CH2",
-    "scope_B": "Star_SIPM2_bottom_large_PCB_CH3",
+    "scope_A": "SiPM_1_Triangle_top_large_PCB_CH2",
+    "scope_B": "SiPM_2_Star_bottom_large_PCB_CH3",
     "scope_C": "small_top_reference_PCB_CH0",
     "scope_D": "small_bottom_reference_PCB_CH1"
   },

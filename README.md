@@ -8,12 +8,12 @@ The work is kept here as a scientific record, including the measurements that wo
 
 ## Present result
 
-Two newly connected SiPMs were marked **Triangle** and **Star**. Two clean scans were made after finding that the PCB CH3 path needed a 25 mV PicoScope trigger to avoid a low-amplitude trigger artifact.
+Two newly connected SiPMs were marked **Triangle** and **Star**. The fixed naming used from this point onward is **SiPM 1 = Triangle** and **SiPM 2 = Star**. Two clean scans were made after finding that the PCB CH3 path needed a 25 mV PicoScope trigger to avoid a low-amplitude trigger artifact.
 
 | SiPM | Weighted breakdown voltage near 20.4 C | Internal uncertainty | Provisional setting for 3.0 V overvoltage |
 |---|---:|---:|---:|
-| Triangle | 50.512 V | 0.083 V | 53.51 V |
-| Star | 50.574 V | 0.067 V | 53.57 V |
+| SiPM 1 (Triangle) | 50.512 V | 0.083 V | 53.51 V |
+| SiPM 2 (Star) | 50.574 V | 0.067 V | 53.57 V |
 
 The measured difference is `0.062 +/- 0.106 V`, or `0.58 sigma`. The present data do not show a significant breakdown-voltage difference between these two devices.
 

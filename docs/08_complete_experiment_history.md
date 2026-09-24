@@ -79,13 +79,13 @@ Two standard scintillator tiles were placed between two small trigger tiles. Fou
 
 The setup was useful for checking waveform accumulation, coincidence timing, and the response of the two large tiles under a common particle trigger. It was not a clean absolute PDE measurement. Cosmic energy deposition varies, light collection differs across the tiles, and the trigger does not deliver a fixed photon intensity. The LED-based zero-event method remains the correct next experiment for relative PDE matching.
 
-## 22 to 23 September: Triangle and Star SiPMs
+## 22 to 23 September: SiPM 1 (Triangle) and SiPM 2 (Star)
 
 Two new light-blocked SiPMs were connected to PCB CH2 and CH3. The CH2 device was marked Triangle and the CH3 device Star. Early scans were deliberately repeated with swaps and mapping checks. Several runs were rejected because the CH3 acquisition was dominated by a low-amplitude trigger population.
 
 A trigger scan showed that the CH3 path required a 25 mV scope trigger for a physically useful spectrum. With that correction, both devices were scanned over 54.8 to 57.0 V, then scanned again independently.
 
-| Result | Triangle | Star |
+| Result | SiPM 1 (Triangle) | SiPM 2 (Star) |
 |---|---:|---:|
 | First clean scan | 50.534 +/- 0.113 V | 50.667 +/- 0.097 V |
 | Independent repeat | 50.486 +/- 0.121 V | 50.488 +/- 0.092 V |

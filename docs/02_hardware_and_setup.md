@@ -76,7 +76,7 @@ Channel identity was treated as experimental metadata, not inferred from color o
 
 | Physical SiPM | PCB channel | PicoScope channel | Acquisition trigger |
 |---|---:|---:|---:|
-| Triangle | CH3 | A | 25 mV |
-| Star | CH2 | B | 25 mV |
+| SiPM 1 (Triangle) | CH3 | A | 25 mV |
+| SiPM 2 (Star) | CH2 | B | 25 mV |
 
 These mappings apply to the final 2026-09-23 scans only.

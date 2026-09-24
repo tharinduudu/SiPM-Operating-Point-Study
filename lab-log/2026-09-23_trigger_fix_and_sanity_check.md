@@ -28,8 +28,8 @@ The Triangle and Star devices were measured with the same 25 mV trigger, bias li
 
 | SiPM | Vbr | Acceptance |
 |---|---:|---:|
-| Triangle | 50.534 +/- 0.113 V | 99.794% |
-| Star | 50.667 +/- 0.097 V | 99.930% |
+| SiPM 1 (Triangle) | 50.534 +/- 0.113 V | 99.794% |
+| SiPM 2 (Star) | 50.667 +/- 0.097 V | 99.930% |
 
 Their difference was 0.90 sigma and was not significant.
 
@@ -39,8 +39,8 @@ The full scan was performed again. The mean temperature was 20.403 C, with a mea
 
 | SiPM | Repeat Vbr | Shift from first clean run |
 |---|---:|---:|
-| Triangle | 50.486 +/- 0.121 V | -0.048 +/- 0.166 V |
-| Star | 50.488 +/- 0.092 V | -0.179 +/- 0.134 V |
+| SiPM 1 (Triangle) | 50.486 +/- 0.121 V | -0.048 +/- 0.166 V |
+| SiPM 2 (Star) | 50.488 +/- 0.092 V | -0.179 +/- 0.134 V |
 
 Neither shift was significant. The weighted two-run results were 50.512 +/- 0.083 V for Triangle and 50.574 +/- 0.067 V for Star.
 

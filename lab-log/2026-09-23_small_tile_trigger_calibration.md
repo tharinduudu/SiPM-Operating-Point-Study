@@ -7,8 +7,8 @@ The two large scintillators were placed between two smaller reference tiles. The
 | Position | SiPM label | PCB channel | PicoScope channel |
 |---|---|---:|---|
 | Small top reference | not individually calibrated | CH0 | C |
-| Top large tile | Triangle, SIPM1 | CH2 | A |
-| Bottom large tile | Star, SIPM2 | CH3 | B |
+| Top large tile | SiPM 1 (Triangle) | CH2 | A |
+| Bottom large tile | SiPM 2 (Star) | CH3 | B |
 | Small bottom reference | not individually calibrated | CH1 | D |
 
 The purpose is to use the small tiles to select a particle crossing the stack, then measure the probability and signal distribution seen by the two large tiles.
@@ -25,8 +25,8 @@ The corrected provisional setting uses the mean measured Vbr of Triangle and Sta
 |---:|---:|
 | CH0, small top | 53.572 V |
 | CH1, small bottom | 53.572 V |
-| CH2, Triangle/SIPM1 | 53.540 V |
-| CH3, Star/SIPM2 | 53.602 V |
+| CH2, SiPM 1 (Triangle) | 53.540 V |
+| CH3, SiPM 2 (Star) | 53.602 V |
 
 The shared MAX1932 setting was `0xF8`. The low-side DAC settings were `0x215`, `0x215`, `0x220`, and `0x20B` for CH0 through CH3. Temperature compensation remained stopped during the run.
 

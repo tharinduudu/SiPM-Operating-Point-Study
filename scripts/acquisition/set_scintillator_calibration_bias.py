@@ -108,13 +108,13 @@ def main() -> None:
                 "vbr_status": "proxy: mean measured Vbr of Triangle and Star; individual Vbr not measured",
             },
             "2": {
-                "label": "Triangle_SIPM1_top_large",
+                "label": "SiPM_1_Triangle_top_large",
                 "vbr_V": args.triangle_vbr_20p4c,
                 "vbr_reference_temperature_C": 20.4,
                 "vbr_status": "measured",
             },
             "3": {
-                "label": "Star_SIPM2_bottom_large",
+                "label": "SiPM_2_Star_bottom_large",
                 "vbr_V": args.star_vbr_20p4c,
                 "vbr_reference_temperature_C": 20.4,
                 "vbr_status": "measured",
