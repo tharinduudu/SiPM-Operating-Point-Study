@@ -55,20 +55,20 @@ The photograph above shows the four analogue paths being inspected. The Triangle
 
 ## Scintillator geometry used for the pilot
 
-Two small scintillator paddles were used as reference counters above and below the standard tiles. Their coincidence selects particles passing through the central region. The standard tiles were read on the two remaining scope channels.
+Two EPIC tiles were used as reference counters above and below the two GSU gLOWCOST tiles. The EPIC-tile coincidence selects particles passing through the central region. The GSU gLOWCOST tiles were read on the two remaining scope channels.
 
-![Small reference tiles sandwiching the standard scintillators](../figures/setup/scintillator_stack_reference_trigger_2026-09-21.jpg)
+![EPIC reference tiles sandwiching the GSU gLOWCOST tiles](../figures/setup/scintillator_stack_reference_trigger_2026-09-21.jpg)
 
 ```mermaid
 flowchart TB
-    T["Small top reference tile"]
-    A["Standard tile A"]
-    B["Standard tile B"]
-    U["Small bottom reference tile"]
+    T["Top EPIC tile"]
+    A["Top GSU gLOWCOST tile"]
+    B["Bottom GSU gLOWCOST tile"]
+    U["Bottom EPIC tile"]
     T --> A --> B --> U
 ```
 
-For that setup, scope channels C and D formed the reference coincidence. Channels A and B recorded the standard tiles. This arrangement measures the efficiency of the complete tile, fibre, SiPM, and readout chain for the selected particle sample.
+For that setup, scope channels C and D formed the EPIC-tile reference coincidence. Channels A and B recorded the GSU gLOWCOST tiles. This arrangement measures the efficiency of the complete tile, fibre, SiPM, and readout chain for the selected particle sample.
 
 ## Channel identity
 

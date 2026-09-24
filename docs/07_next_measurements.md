@@ -38,7 +38,7 @@ The light level should remain low enough that the pedestal remains populated. Re
 
 ## 4. Scintillator efficiency check
 
-Use the small reference tiles to select through-going particles. Record enough coincidences to compare the standard tiles at their provisional `Vbr + 3 V` settings. The result should be reported as full-chain detection efficiency, not intrinsic PDE.
+Use the two EPIC tiles to select through-going particles. Record enough coincidences to compare the GSU gLOWCOST tiles at their provisional `Vbr + 3 V` settings. The result should be reported as full-chain detection efficiency, not intrinsic PDE.
 
 The following should be varied deliberately:
 

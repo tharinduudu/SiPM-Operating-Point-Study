@@ -62,7 +62,7 @@ The chosen 25 mV setting is the **PicoScope acquisition trigger**. It is not the
 
 ## 7. Scintillator zero-event pilot
 
-The reference coincidence is formed by the small top and bottom tiles. For every reference event, the standard tile waveform is checked for a pulse in the expected time window.
+The reference coincidence is formed by the top and bottom EPIC tiles. For every reference event, the GSU gLOWCOST tile waveform is checked for a pulse in the expected time window.
 
 Let:
 

@@ -1,20 +1,20 @@
 {
-  "purpose": "Measure SiPM 1 (Triangle) and SiPM 2 (Star) full-chain response using the two small scintillators as a particle reference.",
+  "purpose": "Measure SiPM 1 (Triangle) and SiPM 2 (Star) full-chain response using the two EPIC tiles as a particle reference.",
   "detector_mapping": {
-    "scope_A": "SiPM_1_Triangle_top_large_PCB_CH2",
-    "scope_B": "SiPM_2_Star_bottom_large_PCB_CH3",
-    "scope_C": "small_top_reference_PCB_CH0",
-    "scope_D": "small_bottom_reference_PCB_CH1"
+    "scope_A": "SiPM_1_Triangle_top_GSU_gLOWCOST_tile_PCB_CH2",
+    "scope_B": "SiPM_2_Star_bottom_GSU_gLOWCOST_tile_PCB_CH3",
+    "scope_C": "top_EPIC_tile_reference_PCB_CH0",
+    "scope_D": "bottom_EPIC_tile_reference_PCB_CH1"
   },
   "bias_policy": {
     "overvoltage_V": 3.0,
     "temperature_coefficient_V_per_C": 0.054,
-    "large_tile_vbr_reference_temperature_C": 20.4,
+    "gsu_glowcost_tile_vbr_reference_temperature_C": 20.4,
     "triangle_vbr_V": 50.512,
     "star_vbr_V": 50.574,
-    "small_tile_vbr_proxy_V": 50.543,
-    "small_tile_vbr_proxy_reference_temperature_C": 20.4,
-    "small_tile_note": "Proxy is the mean measured Vbr of Triangle and Star on this readout. Replace it after measuring each reference SiPM."
+    "epic_tile_vbr_proxy_V": 50.543,
+    "epic_tile_vbr_proxy_reference_temperature_C": 20.4,
+    "epic_tile_note": "Proxy is the mean measured Vbr of Triangle and Star on this readout. Replace it after measuring each EPIC-tile SiPM."
   },
   "acquisition": {
     "events": 1000,

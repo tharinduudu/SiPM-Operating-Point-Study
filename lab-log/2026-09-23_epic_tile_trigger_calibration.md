@@ -1,30 +1,30 @@
-# Small-tile trigger calibration: 2026-09-23
+# EPIC-tile trigger calibration: 2026-09-23
 
 ## Physical arrangement
 
-The two large scintillators were placed between two smaller reference tiles. The channel labels for this experiment are:
+The two GSU gLOWCOST tiles were placed between the two EPIC reference tiles. The channel labels for this experiment are:
 
 | Position | SiPM label | PCB channel | PicoScope channel |
 |---|---|---:|---|
-| Small top reference | not individually calibrated | CH0 | C |
-| Top large tile | SiPM 1 (Triangle) | CH2 | A |
-| Bottom large tile | SiPM 2 (Star) | CH3 | B |
-| Small bottom reference | not individually calibrated | CH1 | D |
+| Top EPIC tile | not individually calibrated | CH0 | C |
+| Top GSU gLOWCOST tile | SiPM 1 (Triangle) | CH2 | A |
+| Bottom GSU gLOWCOST tile | SiPM 2 (Star) | CH3 | B |
+| Bottom EPIC tile | not individually calibrated | CH1 | D |
 
-The purpose is to use the small tiles to select a particle crossing the stack, then measure the probability and signal distribution seen by the two large tiles.
+The purpose is to use the EPIC tiles to select a particle crossing the stack, then measure the probability and signal distribution seen by the two GSU gLOWCOST tiles.
 
 ## Bias preparation
 
 The first attempt set Triangle and Star to their measured `Vbr + 3 V` values, but CH0 and CH1 were not yet assigned controlled biases. That run was rejected.
 
-A second attempt used the Hamamatsu typical absolute Vbr of 53 V for CH0 and CH1. At 20.82 C this placed both small-tile channels near 55.77 V. This was also rejected as the operating-point choice: CH0 saturated the scope and its response was not on the same board-referenced voltage scale as the measured Triangle and Star intercepts.
+A second attempt used the Hamamatsu typical absolute Vbr of 53 V for the EPIC-tile SiPMs on CH0 and CH1. At 20.82 C this placed both channels near 55.77 V. This was also rejected as the operating-point choice: CH0 saturated the scope and its response was not on the same board-referenced voltage scale as the measured Triangle and Star intercepts.
 
-The corrected provisional setting uses the mean measured Vbr of Triangle and Star, 50.543 V at 20.4 C, as a proxy for each small-tile SiPM. This is not presented as a measurement of their Vbr. At 20.94 C the applied effective biases were:
+The corrected provisional setting uses the mean measured Vbr of Triangle and Star, 50.543 V at 20.4 C, as a proxy for each EPIC-tile SiPM. This is not presented as a measurement of their Vbr. At 20.94 C the applied effective biases were:
 
 | PCB channel | Effective bias |
 |---:|---:|
-| CH0, small top | 53.572 V |
-| CH1, small bottom | 53.572 V |
+| CH0, top EPIC tile | 53.572 V |
+| CH1, bottom EPIC tile | 53.572 V |
 | CH2, SiPM 1 (Triangle) | 53.540 V |
 | CH3, SiPM 2 (Star) | 53.602 V |
 
@@ -34,9 +34,9 @@ The shared MAX1932 setting was `0xF8`. The low-side DAC settings were `0x215`, `
 
 The first C-D analogue-AND pilot used 700 mV on both reference channels. All 100 records arrived at the 5 s auto-trigger interval, so this condition was too strict.
 
-Single-channel tests showed that D pulses were much smaller than C pulses. A D-triggered pilot at the overbiased small-tile setting produced real, simultaneous pulses, while an HV-off control produced only timeout records. This confirmed that the live waveforms were detector signals rather than a persistent scope artifact.
+Single-channel tests showed that D pulses were much smaller than C pulses. A D-triggered pilot at the overbiased EPIC-tile setting produced real, simultaneous pulses, while an HV-off control produced only timeout records. This confirmed that the live waveforms were detector signals rather than a persistent scope artifact.
 
-After correcting the small-tile biases, a 50 mV trigger on D collected mostly low-amplitude dark pulses. A 5,000-event run was used to define a cleaner reference region. The useful starting cuts were:
+After correcting the EPIC-tile biases, a 50 mV trigger on D collected mostly low-amplitude dark pulses. A 5,000-event run was used to define a cleaner reference region. The useful starting cuts were:
 
 - C positive excursion at least 3,000 mV;
 - D positive excursion at least 120 mV;
@@ -73,4 +73,4 @@ The observed starting rate was about 3 events/min, giving an estimated duration 
 
 ## Status and limitations
 
-This is a full-chain scintillator response measurement, not an intrinsic PDE measurement. The two reference SiPM breakdown voltages are still unknown, and their provisional bias must eventually be replaced by individual measurements or a demonstrated reference-efficiency plateau. The production result must not be quoted until the reference cuts, accidental contribution, waveform saturation, and large-tile zero-event threshold have been checked.
+This is a full-chain scintillator response measurement, not an intrinsic PDE measurement. The two EPIC-tile SiPM breakdown voltages are still unknown, and their provisional bias must eventually be replaced by individual measurements or a demonstrated reference-efficiency plateau. The production result must not be quoted until the reference cuts, accidental contribution, waveform saturation, and GSU gLOWCOST-tile zero-event threshold have been checked.

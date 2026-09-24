@@ -75,9 +75,9 @@ Each original SiPM was set close to its measured `Vbr + 3 V` point and a large d
 
 ## 22 September: scintillator zero-event study
 
-Two standard scintillator tiles were placed between two small trigger tiles. Four scope channels recorded the two standard-tile SiPMs and the upper/lower trigger tiles. This was a trial of the zero-event idea with cosmic-ray scintillation instead of a pulsed LED.
+Two GSU gLOWCOST tiles were placed between two EPIC tiles. Four scope channels recorded the two GSU gLOWCOST-tile SiPMs and the upper and lower EPIC tiles. This was a trial of the zero-event idea with cosmic-ray scintillation instead of a pulsed LED.
 
-The setup was useful for checking waveform accumulation, coincidence timing, and the response of the two large tiles under a common particle trigger. It was not a clean absolute PDE measurement. Cosmic energy deposition varies, light collection differs across the tiles, and the trigger does not deliver a fixed photon intensity. The LED-based zero-event method remains the correct next experiment for relative PDE matching.
+The setup was useful for checking waveform accumulation, coincidence timing, and the response of the two GSU gLOWCOST tiles under a common EPIC-tile trigger. It was not a clean absolute PDE measurement. Cosmic energy deposition varies, light collection differs across the tiles, and the trigger does not deliver a fixed photon intensity. The LED-based zero-event method remains the correct next experiment for relative PDE matching.
 
 ## 22 to 23 September: SiPM 1 (Triangle) and SiPM 2 (Star)
 

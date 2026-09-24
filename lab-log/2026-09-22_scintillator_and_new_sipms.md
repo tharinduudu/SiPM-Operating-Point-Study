@@ -2,7 +2,7 @@
 
 ## Scintillator zero-event pilot
 
-Two small reference tiles were placed above and below the standard detector tiles. Their coincidence selected particles crossing the central region. The two standard-tile waveforms were then inspected for signal and zero events.
+Two EPIC tiles were placed above and below the GSU gLOWCOST detector tiles. Their coincidence selected particles crossing the central region. The two GSU gLOWCOST-tile waveforms were then inspected for signal and zero events.
 
 This test was prepared as a full-chain efficiency measurement. It includes the scintillator, wavelength-shifting fibre, optical coupling, SiPM, amplifier, and analysis threshold. It should not be described as an intrinsic PDE measurement.
 

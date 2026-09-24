@@ -76,7 +76,3 @@ python3 -m pip install -r requirements.txt
 ```
 
 The acquisition scripts expect the PicoSDK libraries on the waveform computer and SSH access to the Raspberry Pi controlling the bias. Paths and hardware addresses must be checked before a scan. The MAX1932 interface is write-only in this setup; a commanded value is not a direct voltage measurement.
-
-## Repository rule
-
-A result is not promoted because its plot looks clean. The channel mapping, trigger acceptance, temperature, waveform quality, fit stability, and repeatability must agree. Failed and diagnostic runs stay in the record because they define the boundary of the method.

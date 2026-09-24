@@ -154,8 +154,8 @@ def main() -> None:
     if any(channel not in args.reference_thresholds_mv for channel in references):
         parser.error("both reference channels need thresholds")
     duts = args.dut or [
-        Dut("A", "SIPM2", 1651.8, 31.61),
-        Dut("B", "SIPM1", 1595.4, 32.36),
+        Dut("A", "SiPM 1 (Triangle), top GSU gLOWCOST tile", 1651.8, 31.61),
+        Dut("B", "SiPM 2 (Star), bottom GSU gLOWCOST tile", 1595.4, 32.36),
     ]
     if any(dut.channel in references for dut in duts):
         parser.error("DUT and reference channels must be different")
@@ -391,7 +391,7 @@ def main() -> None:
             )
         )
 
-    figure.suptitle("Scintillator zero-event test with an independent two-paddle muon trigger", fontsize=16)
+    figure.suptitle("Scintillator zero-event test with an independent EPIC-tile coincidence", fontsize=16)
     figure.tight_layout(rect=(0, 0, 1, 0.97))
     figure.savefig(args.output / "scintillator_zero_test.png")
     plt.close(figure)

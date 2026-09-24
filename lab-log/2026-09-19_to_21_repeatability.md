@@ -31,7 +31,7 @@ The extracted p.e. spacings agreed with the earlier lines to about -0.34% for SI
 
 ## Decision
 
-Keep 3.0 V overvoltage as a provisional comparison point. Do not claim equal PDE or equal dark rate. Prepare a low-occupancy light test and, while waiting for the light source, test the full scintillator chain with reference tiles.
+Keep 3.0 V overvoltage as a provisional comparison point. Do not claim equal PDE or equal dark rate. Prepare a low-occupancy light test and, while waiting for the light source, test the full scintillator chain with the EPIC reference tiles.
 
 ## Raw records
 

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Set all four SiPM biases for the small-tile-trigger calibration setup."""
+"""Set all four SiPM biases for the EPIC-tile-trigger calibration setup."""
 
 from __future__ import annotations
 
@@ -39,8 +39,8 @@ def corrected_bias(vbr: float, reference_c: float, temperature_c: float, coeffic
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--small-vbr-v", type=float, default=50.543)
-    parser.add_argument("--small-vbr-reference-temperature-c", type=float, default=20.4)
+    parser.add_argument("--epic-vbr-v", type=float, default=50.543)
+    parser.add_argument("--epic-vbr-reference-temperature-c", type=float, default=20.4)
     parser.add_argument("--triangle-vbr-20p4c", type=float, default=50.512)
     parser.add_argument("--star-vbr-20p4c", type=float, default=50.574)
     parser.add_argument("--overvoltage-v", type=float, default=3.0)
@@ -58,20 +58,20 @@ def main() -> None:
         raise RuntimeError(f"BME280 temperature unavailable: {environment}")
     temperature = float(temperature)
 
-    # CH0 and CH1 have no device-specific Vbr measurement yet. Their values
+    # The EPIC-tile SiPMs on CH0 and CH1 have no device-specific Vbr measurement yet. Their values
     # use the mean measured Vbr of the Triangle and Star devices on this same
     # readout. This is a conservative board-referenced proxy, not a substitute
-    # for measuring the two reference SiPMs.
-    small_target = corrected_bias(
-        args.small_vbr_v,
-        args.small_vbr_reference_temperature_c,
+    # for measuring the two EPIC-tile SiPMs.
+    epic_target = corrected_bias(
+        args.epic_vbr_v,
+        args.epic_vbr_reference_temperature_c,
         temperature,
         args.temperature_coefficient_v_per_c,
         args.overvoltage_v,
     )
     targets = {
-        0: small_target,
-        1: small_target,
+        0: epic_target,
+        1: epic_target,
         2: corrected_bias(
             args.triangle_vbr_20p4c,
             20.4,
@@ -96,25 +96,25 @@ def main() -> None:
         "overvoltage_V": args.overvoltage_v,
         "channel_mapping": {
             "0": {
-                "label": "small_top_reference",
-                "vbr_V": args.small_vbr_v,
-                "vbr_reference_temperature_C": args.small_vbr_reference_temperature_c,
+                "label": "top_EPIC_tile_reference",
+                "vbr_V": args.epic_vbr_v,
+                "vbr_reference_temperature_C": args.epic_vbr_reference_temperature_c,
                 "vbr_status": "proxy: mean measured Vbr of Triangle and Star; individual Vbr not measured",
             },
             "1": {
-                "label": "small_bottom_reference",
-                "vbr_V": args.small_vbr_v,
-                "vbr_reference_temperature_C": args.small_vbr_reference_temperature_c,
+                "label": "bottom_EPIC_tile_reference",
+                "vbr_V": args.epic_vbr_v,
+                "vbr_reference_temperature_C": args.epic_vbr_reference_temperature_c,
                 "vbr_status": "proxy: mean measured Vbr of Triangle and Star; individual Vbr not measured",
             },
             "2": {
-                "label": "SiPM_1_Triangle_top_large",
+                "label": "SiPM_1_Triangle_top_GSU_gLOWCOST_tile",
                 "vbr_V": args.triangle_vbr_20p4c,
                 "vbr_reference_temperature_C": 20.4,
                 "vbr_status": "measured",
             },
             "3": {
-                "label": "SiPM_2_Star_bottom_large",
+                "label": "SiPM_2_Star_bottom_GSU_gLOWCOST_tile",
                 "vbr_V": args.star_vbr_20p4c,
                 "vbr_reference_temperature_C": 20.4,
                 "vbr_status": "measured",
