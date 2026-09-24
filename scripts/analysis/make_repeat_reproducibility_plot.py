@@ -13,13 +13,16 @@ import numpy as np
 
 
 SIGNALS = [
-    ("Triangle_PCB_CH3_ScopeA", "Triangle SiPM", "#1f77b4"),
-    ("Star_PCB_CH2_ScopeB", "Star SiPM", "#ff7f0e"),
+    ("PCB_CH3_ScopeA", "sipm1", "SiPM 1 (△)", "#1f77b4"),
+    ("PCB_CH2_ScopeB", "sipm2", "SiPM 2 (★)", "#ff7f0e"),
 ]
 
 
-def load_fit(root: Path, signal: str) -> dict:
-    path = root / "results" / signal / "area" / "vbr_fit.json"
+def load_fit(root: Path, suffix: str) -> dict:
+    matches = list((root / "results").glob(f"*_{suffix}/area/vbr_fit.json"))
+    if len(matches) != 1:
+        raise RuntimeError(f"Expected one signal ending in {suffix}, found {len(matches)}")
+    path = matches[0]
     with path.open() as handle:
         return json.load(handle)
 
@@ -37,8 +40,8 @@ def main() -> None:
 
     args.output.mkdir(parents=True, exist_ok=True)
     fits = {
-        signal: (load_fit(args.first_run, signal), load_fit(args.repeat_run, signal))
-        for signal, _, _ in SIGNALS
+        suffix: (load_fit(args.first_run, suffix), load_fit(args.repeat_run, suffix))
+        for suffix, _, _, _ in SIGNALS
     }
 
     plt.style.use("default")
@@ -46,9 +49,9 @@ def main() -> None:
     grid = fig.add_gridspec(2, 2, height_ratios=[2.2, 1.25])
 
     summary = {}
-    for column, (signal, label, color) in enumerate(SIGNALS):
+    for column, (suffix, key, label, color) in enumerate(SIGNALS):
         ax = fig.add_subplot(grid[0, column])
-        first, repeat = fits[signal]
+        first, repeat = fits[suffix]
         for run_label, fit, marker, filled in [
             ("First run", first, "o", True),
             ("Sanity-check repeat", repeat, "s", False),
@@ -85,7 +88,7 @@ def main() -> None:
             first["breakdown_voltage_unc_V"], repeat["breakdown_voltage_unc_V"]
         )
         z_score = delta / delta_unc
-        summary[signal] = {
+        summary[key] = {
             "label": label,
             "first_vbr_V": first["breakdown_voltage_V"],
             "first_vbr_unc_V": first["breakdown_voltage_unc_V"],
@@ -120,8 +123,8 @@ def main() -> None:
     for run_index, (run_label, marker, filled) in enumerate(
         [("First run", "o", True), ("Sanity-check repeat", "s", False)]
     ):
-        for index, (signal, _, color) in enumerate(SIGNALS):
-            fit = fits[signal][run_index]
+        for index, (suffix, _, _, color) in enumerate(SIGNALS):
+            fit = fits[suffix][run_index]
             ax.errorbar(
                 positions[index] + offsets[run_index],
                 fit["breakdown_voltage_V"],
@@ -136,7 +139,7 @@ def main() -> None:
                 capsize=5,
                 label=run_label if index == 0 else None,
             )
-    ax.set_xticks(positions, [label for _, label, _ in SIGNALS])
+    ax.set_xticks(positions, [label for _, _, label, _ in SIGNALS])
     ax.set_ylabel("Fitted breakdown voltage (V)", fontsize=12)
     ax.set_title("Breakdown-voltage reproducibility", fontsize=14, weight="bold")
     ax.grid(True, axis="y", alpha=0.3)

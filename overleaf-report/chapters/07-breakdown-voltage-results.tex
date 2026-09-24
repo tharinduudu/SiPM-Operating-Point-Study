@@ -1,0 +1,98 @@
+\section{Breakdown-Voltage Results}
+
+\subsection{Original SiPM pair}
+
+The original SIPM1 and SIPM2 were measured in three independent scans. Each main scan used six bias points from approximately 53.4 to \SI{56.9}{\volt} and 10,000 waveforms per SiPM per point. The combined internal results at \SI{20}{\degreeCelsius} were:
+
+\begin{table}[htbp]
+  \centering
+  \caption{Breakdown-voltage results for the original SiPM pair.}
+  \label{tab:original-results}
+  \begin{tabular}{lccc}
+    \toprule
+    Device & $\vbr$ (V) & Area-spacing slope (mV ns/V) & $R^2$ \\
+    \midrule
+    SIPM1 & $50.637\pm0.037$ & 532.5 & 0.9997 \\
+    SIPM2 & $51.988\pm0.103$ & 555.9 & 0.9976 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+The two devices have clearly different operational intercepts on the present bias scale. Applying one common voltage would therefore place them at different nominal overvoltages.
+
+An interleaved scan tested new voltage points against previously frozen lines. The new intercepts, \SI{50.6466(374)}{\volt} and \SI{52.0662(633)}{\volt}, were compatible with the frozen values. This gave an important check that the fitted lines were not only reproducing the exact voltage points used to create them.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.94\linewidth]{original-repeatability.png}
+  \caption{Breakdown-voltage repeatability for the original SiPM pair.}
+  \label{fig:original-repeatability}
+\end{figure}
+
+\subsection{Lower-bias limit}
+
+A separate scan covered 52.0 to \SI{53.4}{\volt} in \SI{0.2}{\volt} steps. The continuous stable region began at \SI{52.6}{\volt} for SIPM1 and \SI{53.2}{\volt} for SIPM2. Below those values, neighboring populations overlapped, trigger acceptance decreased, or the fitted spacing depended strongly on starting values.
+
+For SIPM1, adding every apparently resolved low-bias point moved the fitted intercept from 50.630 to \SI{50.800}{\volt} and increased the required intrinsic charge scatter from 7.9 to \SI{25.5}{\milli\volt\nano\second}. The added points therefore introduced low-end selection bias rather than useful leverage.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.96\linewidth]{lower-bias-resolution.png}
+  \caption{Lower-bias resolution tests. Points close to breakdown were retained only when the multi-population structure remained statistically supported and stable.}
+  \label{fig:lower-bias}
+\end{figure}
+
+\subsection{\texorpdfstring{SiPM 1 ($\triangle$) and SiPM 2 ($\star$)}{SiPM 1 (△) and SiPM 2 (★)}}
+
+After the CH3 trigger study, both physical SiPMs were measured over seven matched bias points with 10,000 waveforms at each point. The complete scan was then repeated independently. The temperature during the repeat ranged from 20.365 to \SI{20.462}{\degreeCelsius}.
+
+\begin{table}[htbp]
+  \centering
+  \caption{Two clean measurements of SiPM 1 ($\triangle$) and SiPM 2 ($\star$). Uncertainties are internal waveform-analysis uncertainties.}
+  \label{tab:sipm1-sipm2-runs}
+  \begin{tabular}{lccc}
+    \toprule
+    Device & First scan $\vbr$ (V) & Repeat $\vbr$ (V) & Weighted $\vbr$ (V) \\
+    \midrule
+    SiPM 1 ($\triangle$) & $50.534\pm0.113$ & $50.486\pm0.121$ & $50.512\pm0.083$ \\
+    SiPM 2 ($\star$) & $50.667\pm0.097$ & $50.488\pm0.092$ & $50.574\pm0.067$ \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+The repeat scan accepted 69,860 of 70,000 SiPM 1 ($\triangle$) waveforms and 69,952 of 70,000 SiPM 2 ($\star$) waveforms. The repeat area-spacing slopes were $513.32\pm12.44$ and $515.68\pm9.40$ \si{\milli\volt\nano\second\per\volt}, respectively. The mean absolute point-by-point changes in spacing were 0.66\% and 0.59\%.
+
+The SiPM 2 ($\star$) minus SiPM 1 ($\triangle$) breakdown-voltage difference is
+
+\begin{equation}
+  \Delta\vbr = \SI{0.062(106)}{\volt},
+\end{equation}
+
+which is a $0.58\sigma$ difference. The current data therefore do not show a statistically significant difference between these two devices.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.98\linewidth]{sipm1-sipm2-repeatability.png}
+  \caption{First and repeated breakdown-voltage measurements for SiPM 1 ($\triangle$) and SiPM 2 ($\star$). The channel-switched and repeated points provide a test of physical-device identity and run-to-run stability.}
+  \label{fig:sipm1-sipm2-repeatability}
+\end{figure}
+
+\subsection{Provisional operating points}
+
+A controlled starting point is \SI{3.0}{\volt} above the measured breakdown voltage. Near \SI{20.4}{\degreeCelsius}, this gives approximately
+
+\begin{table}[htbp]
+  \centering
+  \caption{Provisional operating points for SiPM 1 ($\triangle$) and SiPM 2 ($\star$).}
+  \label{tab:operating-points}
+  \begin{tabular}{lcc}
+    \toprule
+    Device & Weighted $\vbr$ (V) & Provisional $\vbr+\SI{3.0}{\volt}$ setting (V) \\
+    \midrule
+    SiPM 1 ($\triangle$) & $50.512\pm0.083$ & 53.51 \\
+    SiPM 2 ($\star$) & $50.574\pm0.067$ & 53.57 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+These are working settings on the present bias calibration. They should not be interpreted as traceable terminal voltages until the high side and channel low sides are measured directly with a calibrated high-impedance instrument.

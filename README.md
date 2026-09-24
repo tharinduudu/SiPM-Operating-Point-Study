@@ -2,24 +2,24 @@
 
 This repository records the work carried out to find a defensible operating point for the Hamamatsu **S13360-2050VE** SiPMs used with the gLOWCOST detector readout. The practical question sounds simple: what voltage should be applied to each SiPM? In practice, the answer depends on breakdown voltage, temperature, the analogue readout, the acquisition trigger, and the measurement used to compare one SiPM with another.
 
-The work is kept here as a scientific record, including the measurements that worked, the measurements that did not work, and the reasons for changing the method. It covers the manual waveform recordings, height and area histograms, p.e. gap algorithms, channel-swap tests, high-statistics repeats, automated scans, pedestal studies, scintillator tests, and the later Triangle/Star measurements. Raw waveform files are too large for Git. The repository therefore contains the analysis code, compact processed data, selected plots, photographs, and an index pointing to the raw records on the acquisition computer.
+The work is kept here as a scientific record, including the measurements that worked, the measurements that did not work, and the reasons for changing the method. It covers the manual waveform recordings, height and area histograms, p.e. gap algorithms, channel-swap tests, high-statistics repeats, automated scans, pedestal studies, scintillator tests, and the later SiPM 1 (△) and SiPM 2 (★) measurements. Raw waveform files are too large for Git. The repository therefore contains the analysis code, compact processed data, selected plots, photographs, and an index pointing to the raw records on the acquisition computer.
 
 ![Readout board connected to the PicoScope](figures/setup/readout_board_scope_connections_2026-09-23.jpg)
 
 ## Present result
 
-Two newly connected SiPMs were marked **Triangle** and **Star**. The fixed naming used from this point onward is **SiPM 1 = Triangle** and **SiPM 2 = Star**. Two clean scans were made after finding that the PCB CH3 path needed a 25 mV PicoScope trigger to avoid a low-amplitude trigger artifact.
+The two newly connected devices are identified throughout this study as **SiPM 1 (△)** and **SiPM 2 (★)**. Two clean scans were made after finding that the PCB CH3 path needed a 25 mV PicoScope trigger to avoid a low-amplitude trigger artifact.
 
 | SiPM | Weighted breakdown voltage near 20.4 C | Internal uncertainty | Provisional setting for 3.0 V overvoltage |
 |---|---:|---:|---:|
-| SiPM 1 (Triangle) | 50.512 V | 0.083 V | 53.51 V |
-| SiPM 2 (Star) | 50.574 V | 0.067 V | 53.57 V |
+| SiPM 1 (△) | 50.512 V | 0.083 V | 53.51 V |
+| SiPM 2 (★) | 50.574 V | 0.067 V | 53.57 V |
 
 The measured difference is `0.062 +/- 0.106 V`, or `0.58 sigma`. The present data do not show a significant breakdown-voltage difference between these two devices.
 
 These uncertainties describe the waveform analysis and run-to-run repeatability. They **do not include the absolute calibration uncertainty of the MAX1932/DAC bias system**. The settings above are therefore working values, not final traceable voltage calibrations. Equal overvoltage also does not by itself prove equal photon-detection efficiency or dark-count rate.
 
-![Repeatability of the Triangle and Star breakdown-voltage measurements](figures/results/triangle_star_repeat_reproducibility.png)
+![Repeatability of the SiPM 1 (△) and SiPM 2 (★) breakdown-voltage measurements](figures/results/sipm1_sipm2_repeat_reproducibility.png)
 
 ## How the study is arranged
 
@@ -29,7 +29,7 @@ These uncertainties describe the waveform analysis and run-to-run repeatability.
 | [Hardware and setup](docs/02_hardware_and_setup.md) | SiPM, readout, bias path, PicoScope, channels, and photographs |
 | [Measurement method](docs/03_measurement_method.md) | Bias scan and scintillator zero-event procedures |
 | [Analysis method](docs/04_analysis_method.md) | Baseline, pulse area, p.e. peaks, linear fit, and uncertainty |
-| [Results](docs/05_results.md) | Original pair, Triangle/Star pair, failed checks, and interpretation |
+| [Results](docs/05_results.md) | Original pair, later SiPM 1 (△) and SiPM 2 (★) measurements, failed checks, and interpretation |
 | [Limits](docs/06_uncertainty_and_limits.md) | What the numbers do and do not establish |
 | [Next measurements](docs/07_next_measurements.md) | Voltage calibration, temperature scans, and PDE matching |
 | [Complete experiment history](docs/08_complete_experiment_history.md) | Every campaign from the first manual recordings to the repeat scans |

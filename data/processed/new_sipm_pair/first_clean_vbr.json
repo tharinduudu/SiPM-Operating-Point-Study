@@ -1,0 +1,9 @@
+{
+  "sipm1_vbr_V": 50.53357759755488,
+  "sipm1_vbr_unc_V": 0.11260892190942934,
+  "sipm2_vbr_V": 50.66730248212482,
+  "sipm2_vbr_unc_V": 0.0967346913078347,
+  "sipm2_minus_sipm1_V": 0.13372488456993636,
+  "difference_unc_V": 0.14845325795019126,
+  "difference_significance_sigma": 0.9007878063195047
+}

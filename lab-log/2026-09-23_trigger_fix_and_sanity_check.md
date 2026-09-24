@@ -2,7 +2,7 @@
 
 ## CH3 trigger scan
 
-The Triangle SiPM was held at an effective bias of 56.401 V on PCB CH3. Five thousand events were requested at each PicoScope trigger threshold from 10 to 45 mV.
+The SiPM 1 (△) was held at an effective bias of 56.401 V on PCB CH3. Five thousand events were requested at each PicoScope trigger threshold from 10 to 45 mV.
 
 Acceptance was 1.06% at 10 mV and 1.62% at 15 mV. It rose to 86.44% at 20 mV and 99.82% at 25 mV, remaining near 99.9% through 45 mV. The recovered p.e. spacing was stable across the high-acceptance region.
 
@@ -20,16 +20,16 @@ slope = 519.25 +/- 11.93 mV ns/V
 R2 = 0.99892
 ```
 
-This agreed with the earlier clean-channel Triangle measurement within 0.35 combined standard deviations.
+This agreed with the earlier clean-channel SiPM 1 (△) measurement within 0.35 combined standard deviations.
 
 ## First matched two-device scan
 
-The Triangle and Star devices were measured with the same 25 mV trigger, bias list, sampling, and event count.
+The SiPM 1 (△) and SiPM 2 (★) devices were measured with the same 25 mV trigger, bias list, sampling, and event count.
 
 | SiPM | Vbr | Acceptance |
 |---|---:|---:|
-| SiPM 1 (Triangle) | 50.534 +/- 0.113 V | 99.794% |
-| SiPM 2 (Star) | 50.667 +/- 0.097 V | 99.930% |
+| SiPM 1 (△) | 50.534 +/- 0.113 V | 99.794% |
+| SiPM 2 (★) | 50.667 +/- 0.097 V | 99.930% |
 
 Their difference was 0.90 sigma and was not significant.
 
@@ -39,14 +39,14 @@ The full scan was performed again. The mean temperature was 20.403 C, with a mea
 
 | SiPM | Repeat Vbr | Shift from first clean run |
 |---|---:|---:|
-| SiPM 1 (Triangle) | 50.486 +/- 0.121 V | -0.048 +/- 0.166 V |
-| SiPM 2 (Star) | 50.488 +/- 0.092 V | -0.179 +/- 0.134 V |
+| SiPM 1 (△) | 50.486 +/- 0.121 V | -0.048 +/- 0.166 V |
+| SiPM 2 (★) | 50.488 +/- 0.092 V | -0.179 +/- 0.134 V |
 
-Neither shift was significant. The weighted two-run results were 50.512 +/- 0.083 V for Triangle and 50.574 +/- 0.067 V for Star.
+Neither shift was significant. The weighted two-run results were 50.512 +/- 0.083 V for SiPM 1 (△) and 50.574 +/- 0.067 V for SiPM 2 (★).
 
 ## Interpretation
 
-The corrected scan shows that the earlier unstable Triangle result was caused by the measurement path and trigger condition, not demonstrated SiPM physics. The CH3 artifact is still present below the chosen acquisition threshold and should be investigated electrically.
+The corrected scan shows that the earlier unstable SiPM 1 (△) result was caused by the measurement path and trigger condition, not demonstrated SiPM physics. The CH3 artifact is still present below the chosen acquisition threshold and should be investigated electrically.
 
 The two new SiPMs can provisionally be set near 53.51 and 53.57 V for 3.0 V overvoltage at about 20.4 C. These remain predicted effective biases until the high-voltage path is measured independently.
 
@@ -56,4 +56,4 @@ High voltage was turned off after the scans. Temperature compensation remained s
 
 ## Raw records
 
-- `/home/muon/brDownVstudy/experiments/2026-09-23_new_sipms_triangle_star/`
+- The dated 2026-09-23 SiPM experiment directory under `/home/muon/brDownVstudy/experiments/`; individual scan manifests preserve the exact run mapping.

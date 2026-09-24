@@ -19,7 +19,7 @@
   },
   "signals": [
     {
-      "name": "Triangle_PCB_CH3_ScopeA",
+      "name": "SiPM1_PCB_CH3_ScopeA",
       "detector_channel": 3,
       "scope_channel": "A",
       "trigger_mv": 25.0,
@@ -28,7 +28,7 @@
       "synthetic_gain_mv_per_v": 11.0
     },
     {
-      "name": "Star_PCB_CH2_ScopeB",
+      "name": "SiPM2_PCB_CH2_ScopeB",
       "detector_channel": 2,
       "scope_channel": "B",
       "trigger_mv": 25.0,

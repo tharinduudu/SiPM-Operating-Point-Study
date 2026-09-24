@@ -46,9 +46,9 @@ where `mu_0` is the pedestal position and `DeltaQ` is the p.e. spacing. A common
 
 The fitting code uses SciPy optimization routines. Diagnostic smoothing can help locate candidate peaks, but the final spacing is obtained from the spectrum model, not from the smoothed curve alone.
 
-![Example pulse-area spectra for the Triangle SiPM](../figures/results/triangle_pulse_area_spectra.png)
+![Example pulse-area spectra for the SiPM 1 (△)](../figures/results/sipm1_pulse_area_spectra.png)
 
-![Example pulse-area spectra for the Star SiPM](../figures/results/star_pulse_area_spectra.png)
+![Example pulse-area spectra for the SiPM 2 (★)](../figures/results/sipm2_pulse_area_spectra.png)
 
 ## Quality tests
 

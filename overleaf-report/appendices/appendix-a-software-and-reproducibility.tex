@@ -1,0 +1,15 @@
+\section{Software and Reproducibility}
+
+The analysis was performed with Python 3.10, NumPy, pandas, SciPy, and Matplotlib. PicoScope software was used for early manual recordings, and PicoSDK was used for automated acquisition. The main analysis functions used were:
+
+\begin{itemize}[leftmargin=*]
+  \item \texttt{numpy.trapezoid} for pulse-area integration;
+  \item \texttt{scipy.ndimage.gaussian\_filter1d} for diagnostic histogram smoothing;
+  \item \texttt{scipy.signal.find\_peaks} for historical candidate discovery;
+  \item \texttt{scipy.optimize.curve\_fit} for historical local Gaussian fits;
+  \item \texttt{scipy.optimize.least\_squares} for the simultaneous p.e. comb; and
+  \item \texttt{scipy.optimize.brentq} for the additional-scatter solution.
+\end{itemize}
+
+The code, compact processed data, figures, and chronological laboratory notes are available at
+\url{https://github.com/tharinduudu/SiPM-Operating-Point-Study}. Raw waveform campaigns remain on the acquisition computer because their size is not suitable for Git.

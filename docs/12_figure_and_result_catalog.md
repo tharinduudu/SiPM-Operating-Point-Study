@@ -50,15 +50,15 @@ These files are in `figures/historical/method_evolution/`.
 
 The accepted automated original-pair tables are in `data/processed/original_pair/`. The central results are the charge-spacing fits, repeated-scan comparisons, lower-bias resolvability tests, and interleaved checks. `docs/05_results.md` explains which numerical result is recommended and which values are retained only as cross-checks.
 
-## Triangle and Star results
+## SiPM 1 (△) and SiPM 2 (★) results
 
-The final plots are in `figures/results/` and compact data in `data/processed/new_triangle_star_pair/`:
+The final plots are in `figures/results/` and compact data in `data/processed/new_sipm_pair/`:
 
 - CH3 trigger scan and the 25 mV correction;
 - first clean two-device spectra and Vbr fit;
 - independent repeat spectra and Vbr fit;
 - run-to-run reproducibility comparison;
-- weighted Triangle/Star result.
+- weighted SiPM 1 (△) and SiPM 2 (★) result.
 
 Rejected and diagnostic scans are still listed in `data/campaign_catalog.csv` and the lab log. They are not silently deleted from the history.
 

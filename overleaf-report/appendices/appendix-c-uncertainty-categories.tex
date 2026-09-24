@@ -1,0 +1,22 @@
+\section{Summary of Uncertainty Categories}
+
+\begin{table}[htbp]
+  \centering
+  \caption{Uncertainty categories and their current treatment.}
+  \label{tab:uncertainty-summary}
+  \begin{tabularx}{0.94\linewidth}{l Y}
+    \toprule
+    Source & Treatment \\
+    \midrule
+    P.e.-spacing statistics & Included in each spectrum-fit uncertainty \\
+    Slope-intercept covariance & Included in the internal $\vbr$ uncertainty \\
+    Excess point scatter & Added when the observed scatter exceeds point errors \\
+    Run-to-run repeatability & Included when compatible independent runs are combined \\
+    Absolute high-side calibration & Not yet included \\
+    Per-channel DAC calibration & Not yet fully included as a traceable systematic \\
+    Temperature coefficient & Provisional family value; individual scan pending \\
+    Trigger selection & Tested explicitly; problematic points rejected \\
+    Analogue transfer calibration & Not included in absolute charge or gain \\
+    \bottomrule
+  \end{tabularx}
+\end{table}

@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=gLOWCOST Zero-Event Monitor
+Comment=Read-only live view of zero-event acquisition
+Exec=/usr/bin/nice -n 10 /usr/bin/python3 /home/muon/brDownVstudy/automation/zero_event_monitor.py
+Icon=utilities-system-monitor
+Terminal=false
+Categories=Science;Utility;
+StartupNotify=true

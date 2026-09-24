@@ -1,0 +1,85 @@
+\section{EPIC-Triggered Zero-Event Study}
+
+\subsection{Purpose}
+
+The breakdown-voltage measurement equalizes nominal overvoltage. It does not test the final response to scintillation light. Two SiPMs at the same overvoltage can still differ in photon-detection efficiency, dark-count rate, correlated noise, fibre coupling, or amplifier response.
+
+The zero-event study uses two EPIC tiles as reference counters. A top and bottom EPIC coincidence selects a particle crossing the central region. The two GSU gLOWCOST tile waveforms are then examined for a pulse in the expected time window.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.88\linewidth]{scintillator-stack.jpg}
+  \caption{Two GSU gLOWCOST tiles placed between the top and bottom EPIC reference tiles.}
+  \label{fig:scintillator-stack}
+\end{figure}
+
+The current physical mapping is shown in \cref{tab:zero-event-map}.
+
+\begin{table}[htbp]
+  \centering
+  \caption{Channel mapping for the EPIC-triggered GSU gLOWCOST measurement.}
+  \label{tab:zero-event-map}
+  \begin{tabular}{llll}
+    \toprule
+    Position & SiPM label & PCB channel & Scope channel \\
+    \midrule
+    Top EPIC tile & not individually calibrated & CH0 & C \\
+    Top GSU gLOWCOST tile & SiPM 1 ($\triangle$) & CH2 & A \\
+    Bottom GSU gLOWCOST tile & SiPM 2 ($\star$) & CH3 & B \\
+    Bottom EPIC tile & not individually calibrated & CH1 & D \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\subsection{Zero fraction and dark correction}
+
+For each EPIC coincidence, the GSU gLOWCOST signal gate is classified as zero or nonzero using a boundary between the pedestal and one-p.e. response. An equal-duration dark-time window from the same waveform estimates accidental dark pulses and electronic-noise crossings.
+
+Let $f_s$ be the measured zero fraction in the expected signal gate and $f_d$ the zero fraction in the dark-time gate. If the scintillation response and accidental dark activity are independent, an empty signal gate requires both no detected scintillation response and no accidental pulse. Therefore,
+
+\begin{equation}
+  P_0(\text{scintillation})=\frac{f_s}{f_d},
+  \qquad
+  \epsilon_{\mathrm{chain}}=1-\frac{f_s}{f_d}.
+  \label{eq:zero-efficiency}
+\end{equation}
+
+The correction prevents an accidental dark pulse from being counted as successful scintillation detection.
+
+If detected primary photoelectrons follow a Poisson distribution with mean $\mu$, then
+
+\begin{equation}
+  P(0)=e^{-\mu},
+  \qquad
+  \mu=-\ln P(0).
+  \label{eq:zero-poisson}
+\end{equation}
+
+For cosmic-ray scintillation, $\mu$ should be described as a zero-equivalent occupancy rather than an absolute photon yield. Muons do not all deposit identical energy or follow identical paths, and the optical collection varies with position. A pulsed LED with controlled light is required for a cleaner relative PDE measurement.
+
+\subsection{Pilot observations}
+
+The first EPIC coincidence attempt used high analogue thresholds and produced only auto-trigger records, showing that the condition was too strict. Later single-channel tests showed that scope D pulses were smaller than scope C pulses. An HV-off control removed the live pulse population, confirming that the observed coincident signals were detector generated rather than a persistent scope artifact.
+
+A 5,000-event development run used the following provisional reference cuts:
+
+\begin{itemize}[leftmargin=*]
+  \item scope C positive excursion of at least \SI{3000}{\milli\volt};
+  \item scope D positive excursion of at least \SI{120}{\milli\volt}; and
+  \item absolute C--D peak-time difference no greater than \SI{40}{\nano\second}.
+\end{itemize}
+
+Six events passed these strict cuts in \SI{81.49}{\second}, corresponding to approximately 4.4 events per minute. Four of the six showed excursions above \SI{200}{\milli\volt} in both GSU gLOWCOST channels. This sample demonstrated the geometry and timing logic but was too small for an efficiency result.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.98\linewidth]{zero-event-pilot.png}
+  \caption{Four-channel waveform pilot for the scintillator zero-event method. The pilot established channel timing and pulse polarity; it was not used as a final efficiency measurement.}
+  \label{fig:zero-event-pilot}
+\end{figure}
+
+\subsection{Production acquisition}
+\leavevmode\par
+
+\subsection{Zero-event results}
+\leavevmode\par

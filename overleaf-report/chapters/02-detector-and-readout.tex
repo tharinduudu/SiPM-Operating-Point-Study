@@ -1,0 +1,39 @@
+\section{Detector and Readout}
+
+\subsection{SiPM}
+
+The devices studied were Hamamatsu S13360-2050VE MPPCs. The series datasheet gives a $\SI{2}{\milli\metre}\times\SI{2}{\milli\metre}$ photosensitive area, \SI{50}{\micro\metre} pixel pitch, 1584 pixels, a typical breakdown voltage near \SI{53}{\volt}, and a typical gain of approximately $1.7\times10^6$ under the stated manufacturer conditions \cite{hamamatsuDatasheet}. These are typical series values. They do not replace a measurement of the individual device installed in a detector.
+
+An SiPM contains many microcells operated in Geiger mode. One carrier initiating an avalanche produces the charge of one fired cell. More than one fired cell produces a larger pulse. Repeated dark pulses can therefore form approximately equally spaced populations corresponding to one, two, three, or more fired cells.
+
+\subsection{gLOWCOST analogue path}
+
+The waveform was measured after the gLOWCOST analogue amplifier and before the comparator. The recorded signal therefore includes the SiPM response, the coupling network, the amplifier, cable and probe effects, and the PicoScope response. The comparator and FPGA are used during normal counting, but they were not used to measure the photoelectron spacing.
+
+The non-inverting amplifier has a nominal gain of 101. This large gain makes single-cell structure visible on the scope, but it also means that saturation and bandwidth must be checked. A stable p.e. spacing measures the complete analogue-chain response to one additional fired cell. It is not automatically the absolute SiPM charge in coulombs.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.88\linewidth]{readout-board.jpg}
+  \caption{The four-channel gLOWCOST readout connected to the PicoScope. The analogue outputs were measured before the comparator.}
+  \label{fig:readout-board}
+\end{figure}
+
+\subsection{Bias generation}
+
+The detector uses a common high-side voltage from a MAX1932 circuit and an independently adjustable low-side voltage from a channel DAC. The effective SiPM bias is
+
+\begin{equation}
+  \vbias = V_{\mathrm{high}}-V_{\mathrm{low}}.
+  \label{eq:effective-bias}
+\end{equation}
+
+The MAX1932 interface is write-only in the present hardware. A control code can be converted into a predicted voltage using the confirmed calibration relation, but this is not a live measurement at the SiPM terminals. The channel DAC also has a calibrated code-to-voltage relation. Their difference was used for the bias axis in this study.
+
+Temperature compensation was disabled during controlled breakdown-voltage scans so that the voltage did not move while one point was recorded. Temperature was logged and, where stated, bias values were normalized using the provisional manufacturer coefficient of \SI{54}{\milli\volt\per\degreeCelsius}.
+
+\subsection{Waveform instrumentation}
+
+The main measurements used a PicoScope 3406B with 10:1 passive probes. The primary automated scans used a \SI{1}{\nano\second} sample interval and 10,000 waveforms at each voltage point. The acquisition configuration recorded probe ratio, range, coupling, trigger, time window, channel mapping, temperature, and bias commands.
+
+The 10:1 correction is essential. Applying it twice would make the apparent signal ten times too large; omitting it would make the result ten times too small. The correction was therefore treated as part of the acquisition metadata rather than an informal plotting adjustment.

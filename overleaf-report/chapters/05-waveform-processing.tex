@@ -1,0 +1,32 @@
+\section{Waveform Processing}
+
+\subsection{Event-by-event baseline}
+
+Electronic offset was estimated for each event from pre-trigger samples. A robust procedure was used instead of a plain mean. The median and median absolute deviation were first calculated,
+
+\begin{equation}
+  \mathrm{MAD}=\operatorname{median}\left(\left|x_i-\operatorname{median}(x)\right|\right),
+  \qquad
+  \sigma_{\mathrm{robust}}=1.4826\,\mathrm{MAD}.
+  \label{eq:mad}
+\end{equation}
+
+Outlying pre-trigger samples were removed and the baseline was recalculated. The corrected waveform was
+
+\begin{equation}
+  v(t)=V_{\mathrm{recorded}}(t)-V_{\mathrm{baseline}}.
+\end{equation}
+
+The robust estimate prevents one pickup transient or early pulse from moving the baseline of an entire event.
+
+\subsection{Pulse location and integration}
+
+The pulse maximum was searched for only within the expected prompt region. Searching the entire record can incorrectly select a late afterpulse or pickup transient. A three-point quadratic interpolation estimated the maximum between ADC samples. The integration gate in \cref{eq:pulse-area} then followed the measured peak time.
+
+Waveforms were rejected when the baseline region was incomplete, the prompt maximum fell outside the permitted interval, the pulse failed the noise requirement, the integration gate left the recorded window, or the waveform touched the digitizer rail.
+
+\subsection{Saturation and quality control}
+
+Saturation was checked using waveform overlays and the relationship between height and area. Clipping is indicated when many traces share the same maximum, peak height stops increasing while area continues to change, or samples accumulate at the scope rail. A clipped spectrum cannot be repaired by recording more events; the range, gain, or bias must be changed.
+
+The accepted-event fraction was also plotted against voltage. An abrupt acceptance change can indicate trigger selection rather than a real change in SiPM behavior.

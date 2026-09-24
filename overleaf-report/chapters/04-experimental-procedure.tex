@@ -1,0 +1,44 @@
+\section{Experimental Procedure}
+
+\subsection{Dark-pulse scans}
+
+The SiPM was light blocked. Thermal carriers still initiate avalanches, and optical crosstalk can make more than one microcell fire. These events provide the p.e. populations without an external light source.
+
+For each bias point, the voltage was set, the hardware was allowed to settle, temperature was recorded, and the requested waveforms were saved. Each SiPM triggered on its own waveform. The automated sequence also recorded the final hardware state and was designed to turn off the high voltage after completion or failure.
+
+An independent HV-off acquisition measured the electronic pedestal. The pedestal is the zero-avalanche response; it is not necessarily the first peak in a self-triggered dark-pulse histogram. The pedestal location and width were used to constrain the zero-p.e. population in the spectrum model.
+
+\subsection{Channel mapping and swaps}
+
+Physical SiPM labels, PCB channels, and scope channels were recorded separately. This was necessary because connections were deliberately exchanged during diagnosis. A result was assigned to a physical SiPM only when the mapping was known.
+
+Two physical groups appear in the study:
+
+\begin{table}[htbp]
+  \centering
+  \caption{SiPM groups used during the development of the method.}
+  \label{tab:device-groups}
+  \begin{tabularx}{0.96\linewidth}{l l Y}
+    \toprule
+    Group & Device labels & Main purpose \\
+    \midrule
+    Original pair & SIPM1, SIPM2 & Method development and repeated scans \\
+    Later pair & SiPM 1 ($\triangle$), SiPM 2 ($\star$) & Channel diagnosis and clean repeats \\
+    \bottomrule
+  \end{tabularx}
+\end{table}
+
+The numerical results from these groups are not combined because they are different physical devices.
+
+\subsection{Trigger study on PCB CH3}
+
+The first measurements through PCB CH3 had very low acceptance at a \SI{15}{\milli\volt} PicoScope trigger. Swapping scope inputs did not move the behavior; it remained with the PCB path. A dedicated trigger scan at an effective bias of \SI{56.401}{\volt} found a sharp transition between \SI{15}{\milli\volt} and \SI{25}{\milli\volt}. Acceptance increased from 1.62\% to 99.82\%, while the extracted p.e. spacing remained stable from 20 to \SI{45}{\milli\volt}. A \SI{25}{\milli\volt} acquisition trigger was therefore used for the clean SiPM 1 ($\triangle$) and SiPM 2 ($\star$) scans.
+
+This threshold was a PicoScope acquisition setting. It was not the comparator threshold used for normal detector counting, and it did not remove the underlying CH3 feature from the electronics.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.92\linewidth]{ch3-trigger-selection.png}
+  \caption{PCB CH3 acquisition acceptance and extracted spacing as the PicoScope trigger was varied. The stable high-acceptance region begins near \SI{25}{\milli\volt}.}
+  \label{fig:ch3-trigger}
+\end{figure}

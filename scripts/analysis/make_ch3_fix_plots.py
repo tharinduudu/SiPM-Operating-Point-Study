@@ -104,7 +104,13 @@ def corrected_scan_panel(scan_root: Path, output_root: Path, metric: str) -> Non
     fig, axes = plt.subplots(2, 4, figsize=(18, 9), sharex=True)
     rows = []
     for ax, point in zip(axes.flat, manifest["points"]):
-        directory = scan_root / "analysis" / point["tag"] / "Triangle_PCB_CH3_ScopeA"
+        point_root = scan_root / "analysis" / point["tag"]
+        matches = list(point_root.glob("*_PCB_CH3_ScopeA"))
+        if len(matches) != 1:
+            raise RuntimeError(
+                f"Expected one PCB CH3/scope A signal in {point_root}, found {len(matches)}"
+            )
+        directory = matches[0]
         summary = json.loads((directory / "point_summary.json").read_text())
         data = pd.read_csv(directory / "pulse_measurements.csv")
         accepted = data.loc[data["accepted"].astype(bool) & ~data["overflow"].astype(bool), metric].to_numpy(float)
@@ -123,7 +129,7 @@ def corrected_scan_panel(scan_root: Path, output_root: Path, metric: str) -> Non
     for ax in axes[-1, :]:
         if ax.axison:
             ax.set_xlabel(xlabel)
-    fig.suptitle(f"Triangle SiPM: PCB CH3, scope A, 25 mV trigger\n{title}", fontsize=17)
+    fig.suptitle(f"SiPM 1 (△): PCB CH3, scope A, 25 mV trigger\n{title}", fontsize=17)
     fig.tight_layout(rect=(0, 0, 1, 0.93))
     output = "ch3_corrected_height_panels.png" if metric == "peak_height_mV" else "ch3_corrected_area_panels.png"
     fig.savefig(output_root / output, dpi=180, bbox_inches="tight")

@@ -41,8 +41,8 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--epic-vbr-v", type=float, default=50.543)
     parser.add_argument("--epic-vbr-reference-temperature-c", type=float, default=20.4)
-    parser.add_argument("--triangle-vbr-20p4c", type=float, default=50.512)
-    parser.add_argument("--star-vbr-20p4c", type=float, default=50.574)
+    parser.add_argument("--sipm1-vbr-20p4c", type=float, default=50.512)
+    parser.add_argument("--sipm2-vbr-20p4c", type=float, default=50.574)
     parser.add_argument("--overvoltage-v", type=float, default=3.0)
     parser.add_argument("--temperature-coefficient-v-per-c", type=float, default=0.054)
     parser.add_argument("--ramp-step-codes", type=int, default=32)
@@ -59,7 +59,7 @@ def main() -> None:
     temperature = float(temperature)
 
     # The EPIC-tile SiPMs on CH0 and CH1 have no device-specific Vbr measurement yet. Their values
-    # use the mean measured Vbr of the Triangle and Star devices on this same
+    # use the mean measured Vbr of the SiPM 1 and SiPM 2 devices on this same
     # readout. This is a conservative board-referenced proxy, not a substitute
     # for measuring the two EPIC-tile SiPMs.
     epic_target = corrected_bias(
@@ -73,14 +73,14 @@ def main() -> None:
         0: epic_target,
         1: epic_target,
         2: corrected_bias(
-            args.triangle_vbr_20p4c,
+            args.sipm1_vbr_20p4c,
             20.4,
             temperature,
             args.temperature_coefficient_v_per_c,
             args.overvoltage_v,
         ),
         3: corrected_bias(
-            args.star_vbr_20p4c,
+            args.sipm2_vbr_20p4c,
             20.4,
             temperature,
             args.temperature_coefficient_v_per_c,
@@ -99,23 +99,23 @@ def main() -> None:
                 "label": "top_EPIC_tile_reference",
                 "vbr_V": args.epic_vbr_v,
                 "vbr_reference_temperature_C": args.epic_vbr_reference_temperature_c,
-                "vbr_status": "proxy: mean measured Vbr of Triangle and Star; individual Vbr not measured",
+                "vbr_status": "proxy: mean measured Vbr of SiPM 1 and SiPM 2; individual Vbr not measured",
             },
             "1": {
                 "label": "bottom_EPIC_tile_reference",
                 "vbr_V": args.epic_vbr_v,
                 "vbr_reference_temperature_C": args.epic_vbr_reference_temperature_c,
-                "vbr_status": "proxy: mean measured Vbr of Triangle and Star; individual Vbr not measured",
+                "vbr_status": "proxy: mean measured Vbr of SiPM 1 and SiPM 2; individual Vbr not measured",
             },
             "2": {
-                "label": "SiPM_1_Triangle_top_GSU_gLOWCOST_tile",
-                "vbr_V": args.triangle_vbr_20p4c,
+                "label": "SiPM_1_(△)_top_GSU_gLOWCOST_tile",
+                "vbr_V": args.sipm1_vbr_20p4c,
                 "vbr_reference_temperature_C": 20.4,
                 "vbr_status": "measured",
             },
             "3": {
-                "label": "SiPM_2_Star_bottom_GSU_gLOWCOST_tile",
-                "vbr_V": args.star_vbr_20p4c,
+                "label": "SiPM_2_(★)_bottom_GSU_gLOWCOST_tile",
+                "vbr_V": args.sipm2_vbr_20p4c,
                 "vbr_reference_temperature_C": 20.4,
                 "vbr_status": "measured",
             },

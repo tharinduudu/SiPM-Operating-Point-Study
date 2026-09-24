@@ -1,0 +1,45 @@
+\section{Measurement Principle}
+
+\subsection{Breakdown voltage and overvoltage}
+
+The operating quantity is the overvoltage,
+
+\begin{equation}
+  \vov = \vbias-\vbr,
+  \label{eq:overvoltage}
+\end{equation}
+
+where $\vbr$ is the breakdown voltage. Above breakdown, the avalanche charge from one microcell is approximately proportional to overvoltage over a useful operating interval. If the analogue readout remains linear, the spacing between neighboring photoelectron populations follows the same behavior,
+
+\begin{equation}
+  \Delta Q = m(\vbias-\vbr)=m\vbias+b,
+  \label{eq:gain-line}
+\end{equation}
+
+where $\Delta Q$ is the measured pulse-area spacing and $m$ includes the SiPM cell capacitance and the readout conversion. The breakdown voltage is the x-intercept,
+
+\begin{equation}
+  \vbr=-\frac{b}{m}.
+  \label{eq:vbr}
+\end{equation}
+
+This does not mean that a visible waveform is measured at zero amplitude below breakdown. The line is fitted to resolved photoelectron spacing above breakdown and extrapolated to the point where the gain-related spacing becomes zero. This use of gain extrapolation is established in SiPM characterization \cite{chmill2017,klanner2019}.
+
+\subsection{Why pulse area was used}
+
+Peak height is intuitive, but it depends on pulse width, sampling phase, ringing, and clipping. The primary observable in the final method was a peak-aligned integral,
+
+\begin{equation}
+  Q_{\mathrm{proxy}} = \int_{t_{\mathrm{peak}}-20\,\mathrm{ns}}^{t_{\mathrm{peak}}+200\,\mathrm{ns}}
+  v(t)\,dt.
+  \label{eq:pulse-area}
+\end{equation}
+
+Its unit is \si{\milli\volt\nano\second}. It is proportional to charge after the analogue chain, but it is called a charge proxy because the transfer impedance and full frequency response have not yet been calibrated. Peak height was retained as an independent cross-check.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.92\linewidth]{single-pe-waveforms.png}
+  \caption{Representative baseline-subtracted single-photoelectron waveform shapes used to define the prompt pulse region.}
+  \label{fig:single-pe-waveforms}
+\end{figure}

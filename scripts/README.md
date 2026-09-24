@@ -2,6 +2,8 @@
 
 ## Acquisition
 
+- `acquisition/zero_event_monitor.py`: lightweight GTK monitor for a running zero-event capture. It is read-only and shows progress, rate, ETA, acquisition metadata, and the latest four-channel waveform without communicating with the PicoScope.
+
 The [acquisition](acquisition) scripts control the PicoScope capture, communicate with the Raspberry Pi bias controller, and save run metadata. Review host names, SSH settings, channel maps, and hardware addresses before use.
 
 ## Analysis

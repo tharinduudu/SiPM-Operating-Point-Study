@@ -2,7 +2,7 @@
 
 ## Why this study was started
 
-The gLOWCOST detector uses plastic scintillators, wavelength-shifting fibres, and SiPMs to detect charged particles. A charged particle crossing the scintillator produces light. Part of this light reaches the SiPM and produces a short current pulse. The readout amplifies the pulse and compares it with a threshold before the FPGA counts it.
+The gLOWCOST detector uses plastic scintillators, wavelength-shifting fibres, and SiPMs to detect charged particles. A charged particle crossing the scintillator produces light. Part of this light reaches the SiPM and produces a short current pulse. The readout amplifies the pulse and compares it with a threshold before the FPGA processes it. The processed counts are sent to the Raspberry Pi that hosts the detector readout, where the data are prepared and transferred to the Georgia State University servers.
 
 The SiPM must be biased above its breakdown voltage. The difference
 
@@ -12,7 +12,7 @@ Vover = Vbias - Vbr
 
 is called the overvoltage. Increasing overvoltage increases the avalanche gain and usually raises the photon-detection efficiency, but it also raises dark counts, optical crosstalk, and afterpulsing. The best operating point is therefore not simply the largest safe voltage.
 
-The SiPMs also do not have exactly the same breakdown voltage. Applying one common bias can place two devices at different overvoltages. The first goal of this study was to measure the breakdown voltage of each SiPM using the existing detector electronics. The larger goal is to operate several SiPMs at comparable sensitivity and then verify that condition with light or particle data.
+The SiPMs also do not have exactly the same breakdown voltage. Applying one common bias can place two devices at different overvoltages. The first goal of this study was to measure the breakdown voltage of each SiPM using the existing detector electronics. The larger goal is to operate several SiPMs at comparable sensitivity and then verify that condition with light or particle data. A pulsed-LED zero-event measurement is the planned controlled calibration after the particle-trigger method has been validated.
 
 ## Questions being tested
 
@@ -31,12 +31,12 @@ The first SiPM pair produced repeatable p.e.-area spacing curves. A lower-bias s
 
 A scintillator coincidence setup was prepared next. This is a different measurement. It can measure the detection efficiency of the complete scintillator-fibre-SiPM chain, but it does not directly give the intrinsic SiPM photon-detection efficiency.
 
-Two new bare SiPMs, marked Triangle and Star, were later connected to PCB channels 3 and 2. Early scans gave inconsistent behavior on channel 3. Swapping scope inputs showed that the problem stayed with the PCB path. A trigger scan found a sharp acceptance change between 15 and 25 mV. The full bias scan was repeated at 25 mV, followed by another complete repeat as a sanity check.
+Two new bare devices, identified as SiPM 1 (△) and SiPM 2 (★), were later connected to PCB channels 3 and 2. Early scans gave inconsistent behavior on channel 3. Swapping scope inputs showed that the problem stayed with the PCB path. A trigger scan found a sharp acceptance change between 15 and 25 mV. The full bias scan was repeated at 25 mV, followed by another complete repeat as a sanity check.
 
 ## Main conclusions at this stage
 
 - Pulse-area spacing gives a repeatable internal measurement of breakdown voltage.
-- The Triangle and Star devices have compatible breakdown voltages within the present uncertainty.
+- The SiPM 1 (△) and SiPM 2 (★) devices have compatible breakdown voltages within the present uncertainty.
 - PCB CH3 has a low-amplitude prompt artifact. A 25 mV PicoScope trigger avoids it during this calibration, but the electronics path still deserves inspection.
 - Very low-bias points are not automatically better points. Trigger efficiency and peak overlap make them less reliable in the present setup.
 - The reported Vbr errors do not yet include an independently measured absolute bias-voltage systematic.
@@ -49,6 +49,6 @@ Two different physical pairs appear in this repository:
 | Group | Labels | Purpose |
 |---|---|---|
 | Original pair | SIPM1 and SIPM2 | Method development, repeated scans, lower-bias study, and initial operating-point run |
-| New pair | SiPM 1 (Triangle) and SiPM 2 (Star) | Channel diagnosis and final two-run comparison on 2026-09-23 |
+| New pair | SiPM 1 (△) and SiPM 2 (★) | Channel diagnosis and final two-run comparison on 2026-09-23 |
 
 Their values must not be combined. The labels identify physical devices, not permanent PCB channels.

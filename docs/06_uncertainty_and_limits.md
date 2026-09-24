@@ -7,7 +7,7 @@ The reported internal Vbr uncertainty includes:
 - uncertainty of the p.e.-spacing fit at each bias point;
 - slope-intercept covariance in the linear extrapolation;
 - additional point scatter where needed;
-- run-to-run weighting for the combined Triangle/Star values.
+- run-to-run weighting for the combined SiPM 1 (△) and SiPM 2 (★) values.
 
 These terms answer: **if the same calibrated voltages were delivered, how precisely does this waveform method locate the intercept?**
 
@@ -46,4 +46,4 @@ The present self-triggered acquisition does not measure physical DCR because its
 
 ## Present confidence statement
 
-The evidence supports an internal, repeatable breakdown-voltage comparison for the Triangle and Star SiPMs. It does not yet support a traceable absolute Vbr at the 0.1 V level, nor does it prove matched photon sensitivity. The central operating settings are suitable for the next controlled comparison, provided their provisional status is retained.
+The evidence supports an internal, repeatable breakdown-voltage comparison for SiPM 1 (△) and SiPM 2 (★). It does not yet support a traceable absolute Vbr at the 0.1 V level, nor does it prove matched photon sensitivity. The central operating settings are suitable for the next controlled comparison, provided their provisional status is retained.

@@ -1,0 +1,22 @@
+\section{Introduction}
+
+The gLOWCOST detectors are being developed as compact and inexpensive charged-particle detectors. A particle crossing a plastic scintillator deposits energy and produces optical photons. A wavelength-shifting fibre collects part of this light and transports it to a silicon photomultiplier. The SiPM converts the light into a fast electrical pulse, which is amplified, compared with a threshold, and processed by an FPGA. The processed counts are sent to the Raspberry Pi that hosts the gLOWCOST readout, where the data are prepared and transferred to the Georgia State University servers.
+
+A silicon photomultiplier is a compact light sensor made from many small avalanche-photodiode cells connected in parallel. Each cell is operated above its breakdown voltage and produces a nearly fixed amount of charge when it is triggered. When several cells fire together, their charges add and form a larger pulse. This makes it possible to detect the weak light from a scintillator and, under suitable conditions, separate signals corresponding to different numbers of fired cells. SiPMs are well suited to a particle detector such as gLOWCOST, but their gain, noise, and photon response depend on the applied bias and temperature. Their operating voltage must therefore be measured and controlled carefully \cite{hamamatsuTechnical,klanner2019}.
+
+The operating voltage is one of the most important detector settings. An SiPM must be biased above its breakdown voltage, but the breakdown voltage is not identical for every device and changes with temperature. Raising the voltage increases the charge produced by one fired microcell and generally increases photon-detection efficiency. It also increases dark-count rate, optical crosstalk, and afterpulsing \cite{klanner2019,hamamatsuTechnical}. The best setting is therefore a measured operating point, not simply the highest allowed voltage.
+
+This study began with a practical question: can the existing gLOWCOST readout be used to calibrate each SiPM without adding a separate charge-sensitive instrument? The work developed through several stages. Early manual waveform recordings showed photoelectron structure but also exposed problems with baseline treatment, trigger selection, and channel identity. The acquisition was then automated, the pulse-area method was made more robust, complete scans were repeated, and channel swaps were used to distinguish SiPM behavior from readout-path behavior. Once the SiPMs are calibrated and their photon-detection efficiencies are measured, the gLOWCOST detectors can be adjusted to comparable sensitivity, making future cosmic-ray measurements more reliable.
+
+The objectives were:
+
+\begin{enumerate}[leftmargin=*]
+  \item resolve photoelectron populations using the amplified analogue waveform;
+  \item determine the response corresponding to one additional fired microcell;
+  \item measure breakdown voltage from the gain-related spacing;
+  \item test repeatability and sensitivity to trigger conditions;
+  \item set provisional equal-overvoltage operating points; and
+  \item prepare an independent particle-trigger measurement of full-chain efficiency.
+\end{enumerate}
+
+The last objective is important. Equal overvoltage is a useful starting condition, but it does not prove equal photon sensitivity. The scintillator, fibre, optical coupling, SiPM, amplifier, and software threshold all contribute to the response seen in the final detector.

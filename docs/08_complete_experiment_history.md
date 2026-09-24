@@ -79,13 +79,13 @@ Two GSU gLOWCOST tiles were placed between two EPIC tiles. Four scope channels r
 
 The setup was useful for checking waveform accumulation, coincidence timing, and the response of the two GSU gLOWCOST tiles under a common EPIC-tile trigger. It was not a clean absolute PDE measurement. Cosmic energy deposition varies, light collection differs across the tiles, and the trigger does not deliver a fixed photon intensity. The LED-based zero-event method remains the correct next experiment for relative PDE matching.
 
-## 22 to 23 September: SiPM 1 (Triangle) and SiPM 2 (Star)
+## 22 to 23 September: SiPM 1 (△) and SiPM 2 (★)
 
-Two new light-blocked SiPMs were connected to PCB CH2 and CH3. The CH2 device was marked Triangle and the CH3 device Star. Early scans were deliberately repeated with swaps and mapping checks. Several runs were rejected because the CH3 acquisition was dominated by a low-amplitude trigger population.
+Two new light-blocked SiPMs were connected to PCB CH2 and CH3 and identified as SiPM 1 (△) and SiPM 2 (★). Early scans were deliberately repeated with swaps and mapping checks. Several runs were rejected because the CH3 acquisition was dominated by a low-amplitude trigger population.
 
 A trigger scan showed that the CH3 path required a 25 mV scope trigger for a physically useful spectrum. With that correction, both devices were scanned over 54.8 to 57.0 V, then scanned again independently.
 
-| Result | SiPM 1 (Triangle) | SiPM 2 (Star) |
+| Result | SiPM 1 (△) | SiPM 2 (★) |
 |---|---:|---:|
 | First clean scan | 50.534 +/- 0.113 V | 50.667 +/- 0.097 V |
 | Independent repeat | 50.486 +/- 0.121 V | 50.488 +/- 0.092 V |

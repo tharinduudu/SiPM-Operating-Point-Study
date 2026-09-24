@@ -32,7 +32,7 @@ flowchart LR
     C --> D["Veff = Vhigh - Vlow"]
 ```
 
-The MAX1932 interface in the present hardware is write-only. The control program can report the value predicted by its calibration, but that report is not a direct high-voltage measurement. This distinction is important because the statistical uncertainty of the waveform fit can be much smaller than the uncertainty of the delivered voltage.
+The MAX1932 interface in the present hardware is write-only. The control program can report the value predicted by the confirmed calibration relation, but that report is not a direct high-voltage measurement. This distinction is important because the statistical uncertainty of the waveform fit can be much smaller than the uncertainty of the delivered voltage.
 
 Temperature compensation was stopped for the controlled breakdown-voltage scans. Temperature was recorded and, where stated, values were normalized to 20 C using the provisional datasheet coefficient of 54 mV/C.
 
@@ -49,7 +49,7 @@ The 10:1 attenuation must be included when converting scope input values to the 
 
 ![PicoScope probes connected at the four readout channels](../figures/setup/readout_board_scope_connections_2026-09-23.jpg)
 
-The photograph above shows the four analogue paths being inspected. The Triangle and Star marks on the front connectors were used to preserve the identity of the two new SiPMs while scope channels and PCB channels were exchanged.
+The photograph above shows the four analogue paths being inspected. The two devices were tracked as SiPM 1 (△) and SiPM 2 (★) while scope channels and PCB channels were exchanged.
 
 ![Probe routing during the channel checks](../figures/setup/scope_probe_routing_2026-09-23.jpg)
 
@@ -72,11 +72,11 @@ For that setup, scope channels C and D formed the EPIC-tile reference coincidenc
 
 ## Channel identity
 
-Channel identity was treated as experimental metadata, not inferred from color or scope position. This became necessary after deliberately swapping connections. The final clean Triangle/Star runs used:
+Channel identity was treated as experimental metadata, not inferred from color or scope position. This became necessary after deliberately swapping connections. The final clean SiPM 1 (△) and SiPM 2 (★) runs used:
 
 | Physical SiPM | PCB channel | PicoScope channel | Acquisition trigger |
 |---|---:|---:|---:|
-| SiPM 1 (Triangle) | CH3 | A | 25 mV |
-| SiPM 2 (Star) | CH2 | B | 25 mV |
+| SiPM 1 (△) | CH3 | A | 25 mV |
+| SiPM 2 (★) | CH2 | B | 25 mV |
 
 These mappings apply to the final 2026-09-23 scans only.

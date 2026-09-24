@@ -1,6 +1,6 @@
 {
-  "Triangle_PCB_CH3_ScopeA": {
-    "label": "Triangle SiPM",
+  "SiPM1_PCB_CH3_ScopeA": {
+    "label": "SiPM 1 (△)",
     "first_vbr_V": 50.53357759755488,
     "first_vbr_unc_V": 0.11260892190942934,
     "repeat_vbr_V": 50.48584799519586,
@@ -11,8 +11,8 @@
     "first_r_squared": 0.9948829743582254,
     "repeat_r_squared": 0.9998846537486413
   },
-  "Star_PCB_CH2_ScopeB": {
-    "label": "Star SiPM",
+  "SiPM2_PCB_CH2_ScopeB": {
+    "label": "SiPM 2 (★)",
     "first_vbr_V": 50.66730248212482,
     "first_vbr_unc_V": 0.0967346913078347,
     "repeat_vbr_V": 50.48824972290689,

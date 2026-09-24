@@ -154,8 +154,8 @@ def main() -> None:
     if any(channel not in args.reference_thresholds_mv for channel in references):
         parser.error("both reference channels need thresholds")
     duts = args.dut or [
-        Dut("A", "SiPM 1 (Triangle), top GSU gLOWCOST tile", 1651.8, 31.61),
-        Dut("B", "SiPM 2 (Star), bottom GSU gLOWCOST tile", 1595.4, 32.36),
+        Dut("A", "SiPM 1 (△), top GSU gLOWCOST tile", 1651.8, 31.61),
+        Dut("B", "SiPM 2 (★), bottom GSU gLOWCOST tile", 1595.4, 32.36),
     ]
     if any(dut.channel in references for dut in duts):
         parser.error("DUT and reference channels must be different")

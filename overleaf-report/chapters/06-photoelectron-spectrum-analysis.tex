@@ -1,0 +1,60 @@
+\section{Photoelectron Spectrum Analysis}
+
+\subsection{Historical peak-finding method}
+
+The early analyses built a raw histogram and smoothed its bin counts with
+\path{scipy.ndimage.gaussian_filter1d}. Candidate maxima were found with
+\path{scipy.signal.find_peaks} and refined using a local Gaussian plus linear background fitted with
+\path{scipy.optimize.curve_fit}. The refined centers were sorted, and combinations were tested for an approximately even sequence.
+
+For histogram counts $H(x_i)$, Gaussian smoothing has the form
+
+\begin{equation}
+  S(x)=\frac{\sum_i H(x_i)\exp\left[-(x-x_i)^2/(2\sigma_s^2)\right]}
+  {\sum_i \exp\left[-(x-x_i)^2/(2\sigma_s^2)\right]}.
+\end{equation}
+
+The smoothed curve was used only to locate candidates. Peak centers were refined against the unsmoothed bins. This distinction matters because smoothing does not add information to the data.
+
+\subsection{Pedestal-constrained comb model}
+
+The current primary method fits several p.e. populations together. Their centers share one spacing,
+
+\begin{equation}
+  \mu_n=\mu_0+n\Delta Q.
+  \label{eq:comb-centers}
+\end{equation}
+
+The pedestal location and width are constrained by the independent pedestal acquisition. Population amplitudes and widths can vary. The optimization uses \texttt{scipy.optimize.least\_squares} with a Poisson-deviance residual for histogram counts. Several starting spacings are tried to test stability.
+
+The multi-population model is compared with a single broad population using the Bayesian information criterion,
+
+\begin{equation}
+  \mathrm{BIC}=D+k\ln N,
+\end{equation}
+
+where $D$ is the deviance, $k$ the number of model parameters, and $N$ the number of fitted observations used by the implementation. In the lower-bias study, a comb point required $\Delta\mathrm{BIC}\geq10$ together with stable spacing and separated neighboring populations.
+
+\subsection{Why every visible maximum is not a p.e. peak}
+
+A p.e. sequence should be approximately periodic. A small first population followed by a larger second population can be physically reasonable because the trigger can suppress small pulses and optical crosstalk can move events into higher populations. However, two nearby maxima inside one expected population can also result from pulse-shape variation, pickup, or over-flexible peak finding. The analysis therefore uses the complete spacing pattern and fit stability rather than accepting every local maximum.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.98\linewidth]{sipm1-spectra.png}
+  \caption{Pulse-area spectra from the SiPM 1 ($\triangle$) across the clean bias scan. Raw histogram structure and the fitted population sequence were inspected at each voltage.}
+  \label{fig:sipm1-spectra}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.98\linewidth]{sipm2-spectra.png}
+  \caption{Pulse-area spectra from the SiPM 2 ($\star$) across the clean bias scan.}
+  \label{fig:sipm2-spectra}
+\end{figure}
+
+\subsection{Spacing and breakdown-voltage uncertainties}
+
+The comb-fit covariance gives the statistical uncertainty of $\Delta Q$ under the selected model. The spacing points are then fitted against bias with an uncertainty floor so that one unrealistically precise point cannot dominate. If the point scatter exceeds the stated errors, an additional vertical scatter term is included.
+
+The covariance of slope and intercept is propagated through $\vbr=-b/m$. The fit is also repeated while removing one voltage at a time. A large movement under this leave-one-out test indicates that the nominal regression uncertainty is not a reliable description of the measurement.

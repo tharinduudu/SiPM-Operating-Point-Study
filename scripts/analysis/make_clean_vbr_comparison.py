@@ -12,9 +12,16 @@ import numpy as np
 
 
 DEVICES = [
-    ("Triangle_PCB_CH3_ScopeA", "Triangle SiPM", "#1f77b4", "o"),
-    ("Star_PCB_CH2_ScopeB", "Star SiPM", "#ff7f0e", "s"),
+    ("PCB_CH3_ScopeA", "SiPM 1 (△)", "#1f77b4", "o"),
+    ("PCB_CH2_ScopeB", "SiPM 2 (★)", "#ff7f0e", "s"),
 ]
+
+
+def resolve_signal(run_root: Path, suffix: str) -> str:
+    matches = list((run_root / "results").glob(f"*_{suffix}/area/vbr_fit.json"))
+    if len(matches) != 1:
+        raise RuntimeError(f"Expected one signal ending in {suffix}, found {len(matches)}")
+    return matches[0].parents[1].name
 
 
 def main() -> None:
@@ -25,15 +32,19 @@ def main() -> None:
     args.output.mkdir(parents=True, exist_ok=True)
 
     fits = {}
+    signals = {}
     manifest = json.loads((args.run_root / "scan_manifest.json").read_text())
-    for signal, label, color, marker in DEVICES:
+    for suffix, label, color, marker in DEVICES:
+        signal = resolve_signal(args.run_root, suffix)
+        signals[suffix] = signal
         path = args.run_root / "results" / signal / "area" / "vbr_fit.json"
-        fits[signal] = json.loads(path.read_text())
+        fits[suffix] = json.loads(path.read_text())
 
     fig, axes = plt.subplots(1, 2, figsize=(14, 5.8), gridspec_kw={"width_ratios": [1.75, 1]})
     x_line = np.linspace(50.2, 57.2, 400)
-    for signal, label, color, marker in DEVICES:
-        fit = fits[signal]
+    for suffix, label, color, marker in DEVICES:
+        signal = signals[suffix]
+        fit = fits[suffix]
         x = np.asarray(fit["bias_points_V"], dtype=float)
         y = np.asarray(fit["pe_spacings"], dtype=float)
         yerr = np.asarray(
@@ -76,8 +87,8 @@ def main() -> None:
     axes[0].grid(True, alpha=0.3)
 
     labels, values, errors, colors = [], [], [], []
-    for signal, label, color, _ in DEVICES:
-        fit = fits[signal]
+    for suffix, label, color, _ in DEVICES:
+        fit = fits[suffix]
         labels.append(label)
         values.append(fit["breakdown_voltage_V"])
         errors.append(fit["breakdown_voltage_unc_V"])
@@ -93,7 +104,8 @@ def main() -> None:
     axes[1].text(
         0.5,
         min(values) - 0.22,
-        f"Star - Triangle = {difference:.3f} +/- {difference_unc:.3f} V\nDifference = {significance:.2f} sigma",
+        f"SiPM 2 (★) - SiPM 1 (△) = {difference:.3f} +/- {difference_unc:.3f} V\n"
+        f"Difference = {significance:.2f} sigma",
         ha="center",
         va="center",
         bbox={"boxstyle": "round,pad=0.35", "facecolor": "white", "edgecolor": "0.7"},
@@ -109,11 +121,11 @@ def main() -> None:
     plt.close(fig)
 
     summary = {
-        "triangle_vbr_V": values[0],
-        "triangle_vbr_unc_V": errors[0],
-        "star_vbr_V": values[1],
-        "star_vbr_unc_V": errors[1],
-        "star_minus_triangle_V": difference,
+        "sipm1_vbr_V": values[0],
+        "sipm1_vbr_unc_V": errors[0],
+        "sipm2_vbr_V": values[1],
+        "sipm2_vbr_unc_V": errors[1],
+        "sipm2_minus_sipm1_V": difference,
         "difference_unc_V": difference_unc,
         "difference_significance_sigma": significance,
     }

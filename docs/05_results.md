@@ -50,11 +50,11 @@ Fifty thousand waveforms were acquired for each device. The p.e. spacing remaine
 
 ![Dark-pulse spectra at the provisional operating points](../figures/diagnostics/operating_point_dark_spectra.png)
 
-## 2. New Triangle and Star pair
+## 2. SiPM 1 (△) and SiPM 2 (★)
 
 ### Finding the PCB CH3 trigger problem
 
-The Triangle SiPM initially produced only about 1 to 2.5% valid captures through PCB CH3 at a 15 mV scope trigger. Swapping the scope inputs did not move the behavior; it stayed with the PCB channel. This indicated a channel-path effect rather than a property of the scope input.
+The SiPM 1 (△) initially produced only about 1 to 2.5% valid captures through PCB CH3 at a 15 mV scope trigger. Swapping the scope inputs did not move the behavior; it stayed with the PCB channel. This indicated a channel-path effect rather than a property of the scope input.
 
 At 56.401 V, the trigger acceptance was:
 
@@ -85,10 +85,10 @@ Both physical SiPMs were then measured with the same 25 mV acquisition trigger a
 
 | SiPM | Vbr | Internal uncertainty |
 |---|---:|---:|
-| SiPM 1 (Triangle) | 50.534 V | 0.113 V |
-| SiPM 2 (Star) | 50.667 V | 0.097 V |
+| SiPM 1 (△) | 50.534 V | 0.113 V |
+| SiPM 2 (★) | 50.667 V | 0.097 V |
 
-![First clean Triangle and Star comparison](../figures/results/triangle_star_first_clean_vbr.png)
+![First clean SiPM 1 (△) and SiPM 2 (★) comparison](../figures/results/sipm1_sipm2_first_clean_vbr.png)
 
 ### Sanity-check repeat
 
@@ -96,21 +96,21 @@ The complete scan was repeated using 10,000 events at each of seven bias points.
 
 | SiPM | Accepted waveforms | Repeat Vbr | Area-spacing slope | R2 |
 |---|---:|---:|---:|---:|
-| SiPM 1 (Triangle) | 69,860 / 70,000 | 50.486 +/- 0.121 V | 513.32 +/- 12.44 mV ns/V | 0.99988 |
-| SiPM 2 (Star) | 69,952 / 70,000 | 50.488 +/- 0.092 V | 515.68 +/- 9.40 mV ns/V | 0.99933 |
+| SiPM 1 (△) | 69,860 / 70,000 | 50.486 +/- 0.121 V | 513.32 +/- 12.44 mV ns/V | 0.99988 |
+| SiPM 2 (★) | 69,952 / 70,000 | 50.488 +/- 0.092 V | 515.68 +/- 9.40 mV ns/V | 0.99933 |
 
-The repeat-to-first-run shifts were `-0.048 +/- 0.166 V` for Triangle and `-0.179 +/- 0.134 V` for Star. Neither shift reached 2 sigma. The mean absolute point-by-point change in area spacing was 0.66% and 0.59%, respectively.
+The repeat-to-first-run shifts were `-0.048 +/- 0.166 V` for SiPM 1 (△) and `-0.179 +/- 0.134 V` for SiPM 2 (★). Neither shift reached 2 sigma. The mean absolute point-by-point change in area spacing was 0.66% and 0.59%, respectively.
 
 Combining the two clean runs gives:
 
 | SiPM | Weighted Vbr | Internal uncertainty |
 |---|---:|---:|
-| SiPM 1 (Triangle) | 50.512 V | 0.083 V |
-| SiPM 2 (Star) | 50.574 V | 0.067 V |
+| SiPM 1 (△) | 50.512 V | 0.083 V |
+| SiPM 2 (★) | 50.574 V | 0.067 V |
 
-The Star-minus-Triangle difference is `0.062 +/- 0.106 V`, or `0.58 sigma`. There is no statistically significant Vbr difference in the present data.
+The SiPM 2 (★) minus SiPM 1 (△) difference is `0.062 +/- 0.106 V`, or `0.58 sigma`. There is no statistically significant Vbr difference in the present data.
 
-![First and repeated Triangle/Star measurements](../figures/results/triangle_star_repeat_reproducibility.png)
+![First and repeated SiPM 1 (△) and SiPM 2 (★) measurements](../figures/results/sipm1_sipm2_repeat_reproducibility.png)
 
 ## 3. What the measurements show
 

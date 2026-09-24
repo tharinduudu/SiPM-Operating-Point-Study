@@ -6,4 +6,4 @@ automation_validation,2026-09-17_to_2026-09-18,/home/muon/brDownVstudy/experimen
 breakdown_method_development,2026-09-21,/home/muon/brDownVstudy/experiments/2026-09-21_breakdown_scan_method_development,Repeat and lower-bias scans,accepted_with_exclusions
 operating_point_dark_counts,2026-09-21,/home/muon/brDownVstudy/experiments/2026-09-21_operating_point_dark_counts,Dark spectra at provisional Vbr plus 3 V,diagnostic_not_dcr
 scintillator_zero_event,2026-09-22,/home/muon/brDownVstudy/experiments/2026-09-22_scintillator_zero_event_test,Reference-coincidence pilot,pilot
-new_triangle_star_pair,2026-09-23,/home/muon/brDownVstudy/experiments/2026-09-23_new_sipms_triangle_star,CH3 trigger study and two clean repeated Vbr scans,accepted_internal_result
+new_sipm_pair,2026-09-23,/home/muon/brDownVstudy/experiments/,CH3 trigger study and two clean repeated Vbr scans; exact run folders are recorded in their manifests,accepted_internal_result

@@ -21,7 +21,7 @@ The original top-level locations are listed in [raw_data_index.csv](raw_data_ind
 - interleaved validation points;
 - lower-bias resolution results for SIPM1 and SIPM2.
 
-### `processed/new_triangle_star_pair`
+### `processed/new_sipm_pair`
 
 - CH3 trigger scan and corrected bias-scan summaries;
 - first clean two-device Vbr result;

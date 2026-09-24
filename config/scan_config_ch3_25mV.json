@@ -8,7 +8,7 @@
   "settle_seconds": 20,
   "signals": [
     {
-      "name": "Triangle_PCB_CH3_ScopeA",
+      "name": "SiPM1_PCB_CH3_ScopeA",
       "detector_channel": 3,
       "scope_channel": "A",
       "trigger_mv": 25.0,
